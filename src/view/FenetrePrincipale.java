@@ -15,10 +15,13 @@ import java.io.IOException;
 
 public class FenetrePrincipale {
 
-    private CapteurTemperature capteurTemp = new CapteurTemperature("CapteurTemp");
+    private final CapteurTemperature capteurTemp = new CapteurTemperature("CapteurTemp");
 
     @FXML
     private Button boutonMeteo = new Button();
+
+    @FXML
+    private Button boutonThermometre = new Button();
 
     @FXML
     private void clickBoutonMeteo(ActionEvent event) throws IOException {
@@ -30,7 +33,15 @@ public class FenetrePrincipale {
         stage.setScene(scene);
         stage.show();
     }
-}
 
-// Instancier un FWMLLoader avec instance Capteur ???
-// GetTemperature
+    @FXML
+    private void clickBoutonThermometre(ActionEvent event) throws IOException {
+        Thermometre thermometre = new Thermometre(capteurTemp);
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Thermometre.fxml"));
+        fxml.setController(thermometre);
+        Scene scene = new Scene(fxml.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+}
