@@ -13,16 +13,33 @@ import modele.CapteurTemperature;
 
 import java.io.IOException;
 
+/**
+ * Classe Code Behind de FenetrePrinciaple.fxml
+ */
 public class FenetrePrincipale {
 
+    /**
+     * Attribut CapteurTemperature des fenêtres
+     */
     private final CapteurTemperature capteurTemp = new CapteurTemperature("CapteurTemp");
 
+    /**
+     * Attribut Button lancant la méthode clickBoutonMeteo
+     */
     @FXML
     private Button boutonMeteo = new Button();
 
+    /**
+     * Attribut Button lancant la méthode clickBoutonThermometre
+     */
     @FXML
     private Button boutonThermometre = new Button();
 
+    /**
+     * Méthode permettant de lancer la création d'une fenêtre Meteo
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void clickBoutonMeteo(ActionEvent event) throws IOException {
         Meteo meteo = new Meteo(capteurTemp);
@@ -34,6 +51,11 @@ public class FenetrePrincipale {
         stage.show();
     }
 
+    /**
+     * Méthode permettant de lancer la création d'une fenêtre Thermometre
+     * @param event
+     * @throws IOException
+     */
     @FXML
     private void clickBoutonThermometre(ActionEvent event) throws IOException {
         Thermometre thermometre = new Thermometre(capteurTemp);

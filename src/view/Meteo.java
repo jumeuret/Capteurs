@@ -12,33 +12,56 @@ import modele.CapteurTemperature;
 import java.awt.*;
 import java.io.IOException;
 
+/**
+ * Classe dérivée de Visualisateur Code Behind de Meteo.fxml
+ */
 public class Meteo extends Visualisateur {
 
+    /**
+     * Attribut ImageView permettant de setter l'attribut Image
+     */
     @FXML
     ImageView imageView;
 
+    /**
+     * Attribut Image
+     */
     @FXML
     Image image;
 
+    /**
+     * Attribut Button permettant de lancer la méthode clicFermer
+     */
     @FXML
     Button fermer;
 
-
-    public Meteo(CapteurTemperature capteurMeteo){
+    /**
+     * Constructeur de fenêtre Meteo
+     * @param capteurMeteo
+     * @throws IOException
+     */
+    public Meteo(CapteurTemperature capteurMeteo) throws IOException {
         super(capteurMeteo);
-
+        update();
     }
+
+    /**
+     * Méthode permettant de fermer la fenêtre
+     * @param event
+     */
     @FXML
-    private void clicFermer(ActionEvent event) throws IOException {
+    private void clicFermer(ActionEvent event) {
 
         //Button fermerBis = (Button) event.getSource();
         //Stage stage = (Stage) fermerBis.getScene().getWindow();
         Stage stage = (Stage) fermer.getScene().getWindow();
         stage.close();
-        update();
-
     }
 
+    /**
+     * Méthode permettant de mettre à jour la valeur de l'attribut Image selon la valeur du CapteurTemperature
+     * @throws IOException
+     */
     @Override
     public void update() throws IOException {
 

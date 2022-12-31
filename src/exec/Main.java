@@ -8,8 +8,16 @@ import view.Thermometre;
 
 import java.io.IOException;
 
+/**
+ * Classe de tests console
+ */
 public class Main {
 
+    /**
+     * Méthode de test de création et de modifications de fenêtre Meteo, Thermometre et de CapteurTemperature
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
 
         Afficheur affiche = new Afficheur();
