@@ -10,11 +10,15 @@ import modele.Capteur;
 import modele.CapteurTemperature;
 
 import java.awt.*;
+import java.io.IOException;
 
 public class Meteo extends Visualisateur {
 
     @FXML
-    ImageView image;
+    ImageView imageView;
+
+    @FXML
+    Image image;
 
     @FXML
     Button fermer;
@@ -22,20 +26,32 @@ public class Meteo extends Visualisateur {
 
     public Meteo(CapteurTemperature capteurMeteo){
         super(capteurMeteo);
+
     }
     @FXML
-    private void clicFermer(ActionEvent event){
+    private void clicFermer(ActionEvent event) throws IOException {
 
-        //event.getSource().getClass().;
-        //fermer.getScene().get;
-        //stage.close();
+        //Button fermerBis = (Button) event.getSource();
+        //Stage stage = (Stage) fermerBis.getScene().getWindow();
+        Stage stage = (Stage) fermer.getScene().getWindow();
+        stage.close();
+        update();
 
     }
 
     @Override
-    public void update() {
-        CapteurTemperature monCapteur = (CapteurTemperature)this.getCapteur();
-        int newTemperature = monCapteur.getTemperature();
-        if(newTemperature >= 0 && )
+    public void update() throws IOException {
+
+        Image newImage;
+        if ((((CapteurTemperature)capteur).getTemperature()) < 0){
+            newImage = new Image(getClass().getResource("/images/neige.png").openStream());
+        }
+        else if ((((CapteurTemperature)capteur).getTemperature()) < 22) {
+            newImage = new Image(getClass().getResource("/images/nuages.png").openStream());
+        }
+        else{
+            newImage = new Image(getClass().getResource("/images/soleil.png").openStream());
+        }
+        imageView.setImage(newImage);
     }
 }

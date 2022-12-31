@@ -3,9 +3,11 @@ package view;
 import modele.Capteur;
 import modele.Observateur;
 
+import java.io.IOException;
+
 public abstract class Visualisateur implements Observateur {
 
-    private Capteur capteur;
+    protected Capteur capteur;
 
     public Visualisateur(Capteur capteur){
         this.capteur = capteur;
@@ -15,11 +17,7 @@ public abstract class Visualisateur implements Observateur {
         return capteur;
     }
 
-    public void fermer(){
-        //
-    }
-
-    public void initialize() {
+    public void initialize() throws IOException {
         this.getCapteur().attacher(this);
     }
 }

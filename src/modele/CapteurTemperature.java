@@ -1,5 +1,7 @@
 package modele;
 
+import java.io.IOException;
+
 public class CapteurTemperature extends Capteur{
 
     private int temperature;
@@ -12,8 +14,9 @@ public class CapteurTemperature extends Capteur{
         return temperature;
     }
 
-    public void setTemperature(int temperature) {
+    public void setTemperature(int temperature) throws IOException {
         this.temperature = temperature;
+        notifier();
     }
 
 }

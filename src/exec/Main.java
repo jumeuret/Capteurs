@@ -6,9 +6,11 @@ import modele.CapteurTemperature;
 import view.Meteo;
 import view.Thermometre;
 
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Afficheur affiche = new Afficheur();
         CapteurTemperature capteur = new CapteurTemperature("Test");

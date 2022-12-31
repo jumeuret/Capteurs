@@ -1,5 +1,6 @@
 package modele;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,7 +27,7 @@ public abstract class Sujet {
         listeObservateurs.remove(observateur);
     }
 
-    public void notifier(){
+    public void notifier() throws IOException {
         for (Observateur observateur : listeObservateurs){
             observateur.update();
         }

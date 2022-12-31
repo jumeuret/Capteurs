@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <buttons>
-                <Button mnemonicParsing="false" text="X" />
+                <Button fx:id="fermer" mnemonicParsing="false" onAction="#clicFermer" text="X" />
             </buttons>
         </ButtonBar>
     </top>
@@ -32,6 +32,6 @@
         </GridPane>
     </bottom>
    <center>
-      <Slider orientation="VERTICAL" BorderPane.alignment="CENTER" />
+      <Slider fx:id="curseur" blockIncrement="1.0" max="56.0" min="-93.0" onMouseClicked="#onMouseClicked" onMouseDragged="#onMouseDragged" orientation="VERTICAL" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
