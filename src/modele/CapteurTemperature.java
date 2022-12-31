@@ -15,4 +15,5 @@ public class CapteurTemperature extends Capteur{
     public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
+
 }

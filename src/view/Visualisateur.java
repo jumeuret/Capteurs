@@ -22,9 +22,4 @@ public abstract class Visualisateur implements Observateur {
     public void initialize() {
         this.getCapteur().attacher(this);
     }
-
-    @Override
-    public void update() {
-
-    }
 }

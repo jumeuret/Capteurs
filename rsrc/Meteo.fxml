@@ -11,12 +11,12 @@
 
 <BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.Meteo">
    <center>
-      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+      <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
    </center>
    <top>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button mnemonicParsing="false" text="X" onAction="#clicFermer"/>
+          <Button fx:id="fermer" mnemonicParsing="false" text="X" onAction="#clicFermer"/>
         </buttons>
       </ButtonBar>
    </top>
