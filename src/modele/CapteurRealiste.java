@@ -1,5 +1,7 @@
 package modele;
 
+import java.util.Random;
+
 public class CapteurRealiste extends CapteurTemperatureActif{
 
     // >= -213 °C
@@ -23,8 +25,20 @@ public class CapteurRealiste extends CapteurTemperatureActif{
         maxTemperature = max;
     }
 
+    public double getMaxTemperature() {
+        return maxTemperature;
+    }
+
+    public double getMinTemperature() {
+        return minTemperature;
+    }
+
     @Override
     public void genererTemperature() {
 
+        Random random = new Random();
+        double randomDouble;
+        randomDouble = random.nextDouble(getMinTemperature(), getMaxTemperature());
+        setTemperature(randomDouble);
     }
 }

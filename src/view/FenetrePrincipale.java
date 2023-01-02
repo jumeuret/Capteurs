@@ -8,9 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import modele.Capteur;
-import modele.CapteurTemperature;
-import modele.CapteurTemperaturePassif;
+import modele.*;
 
 import java.io.IOException;
 
@@ -22,7 +20,7 @@ public class FenetrePrincipale {
     /**
      * Attribut CapteurTemperature des fenêtres
      */
-    private final CapteurTemperaturePassif capteurTemp = new CapteurTemperaturePassif("CapteurTemp");
+    private final CapteurRealiste capteurTemp = new CapteurRealiste("CapteurTemp",-5,50);
 
     /**
      * Attribut Button lancant la méthode clickBoutonMeteo
@@ -85,5 +83,6 @@ public class FenetrePrincipale {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+        GenerateurTemperature auto = new GenerateurTemperature(capteurTemp);
     }
 }

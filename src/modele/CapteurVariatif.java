@@ -1,10 +1,14 @@
 package modele;
 
+import java.util.Random;
+
 public class CapteurVariatif extends CapteurTemperatureActif{
 
     private double minVariation;
 
     private double maxVariation;
+
+    private double temperatureInitiale;
 
     /**
      * Constructeur de CapteurVariatif
@@ -18,7 +22,29 @@ public class CapteurVariatif extends CapteurTemperatureActif{
     }
 
     @Override
-    public void genererTemperature() {
+    public void setTemperature(double temperature) {
+        temperatureInitiale = super.getTemperature();
+        super.setTemperature(temperature);
+    }
 
+    public double getMaxVariation() {
+        return maxVariation;
+    }
+
+    public double getMinVariation() {
+        return minVariation;
+    }
+
+    public double getTemperatureInitiale() {
+        return temperatureInitiale;
+    }
+
+    @Override
+    public void genererTemperature() {
+        Random random = new Random();
+        double randomDouble;
+        randomDouble = random.nextDouble(getMinVariation(), getMaxVariation());
+        randomDouble = getTemperatureInitiale() + randomDouble;
+        setTemperature(randomDouble);
     }
 }

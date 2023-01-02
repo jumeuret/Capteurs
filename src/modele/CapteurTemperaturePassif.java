@@ -15,13 +15,4 @@ public class CapteurTemperaturePassif extends CapteurTemperature {
     public CapteurTemperaturePassif(String nomCapteur) {
         super(nomCapteur);
     }
-
-    /**
-     * Setter de la température du CapteurTemperature
-     * @param temperature
-     * @throws IOException
-     */
-    private void setTemperature(double temperature){
-        this.temperature.set(temperature);
-    }
 }
