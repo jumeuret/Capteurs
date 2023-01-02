@@ -9,6 +9,7 @@ import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 import modele.Capteur;
 import modele.CapteurTemperature;
+import modele.CapteurTemperaturePassif;
 
 import java.io.IOException;
 

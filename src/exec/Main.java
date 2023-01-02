@@ -3,6 +3,7 @@ package exec;
 import console.Afficheur;
 import modele.Capteur;
 import modele.CapteurTemperature;
+import modele.CapteurTemperaturePassif;
 import view.Meteo;
 import view.Thermometre;
 

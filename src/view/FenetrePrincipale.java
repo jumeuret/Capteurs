@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.Capteur;
 import modele.CapteurTemperature;
+import modele.CapteurTemperaturePassif;
 
 import java.io.IOException;
 
@@ -21,7 +22,7 @@ public class FenetrePrincipale {
     /**
      * Attribut CapteurTemperature des fenêtres
      */
-    private final CapteurTemperature capteurTemp = new CapteurTemperature("CapteurTemp");
+    private final CapteurTemperaturePassif capteurTemp = new CapteurTemperaturePassif("CapteurTemp");
 
     /**
      * Attribut Button lancant la méthode clickBoutonMeteo

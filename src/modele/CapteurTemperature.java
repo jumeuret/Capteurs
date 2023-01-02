@@ -38,13 +38,4 @@ public class CapteurTemperature extends Capteur{
     public double getTemperature(){
         return this.temperature.get();
     }
-
-    /**
-     * Setter de la température du CapteurTemperature
-     * @param temperature
-     * @throws IOException
-     */
-    private void setTemperature(double temperature){
-        this.temperature.set(temperature);
-    }
 }

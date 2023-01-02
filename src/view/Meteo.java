@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import modele.Capteur;
 import modele.CapteurTemperature;
+import modele.CapteurTemperaturePassif;
 
 import java.awt.*;
 import java.io.IOException;
@@ -37,10 +38,10 @@ public class Meteo extends Visualisateur {
 
     private void changeImage() throws IOException {
         Image newImage;
-        if (((CapteurTemperature)getCapteur()).getTemperature() < 0){
+        if (((CapteurTemperaturePassif)getCapteur()).getTemperature() < 0){
             newImage = new Image(getClass().getResource("/images/neige.png").openStream());
         }
-        else if (((CapteurTemperature)getCapteur()).getTemperature() < 22) {
+        else if (((CapteurTemperaturePassif)getCapteur()).getTemperature() < 22) {
             newImage = new Image(getClass().getResource("/images/nuages.png").openStream());
         }
         else{
