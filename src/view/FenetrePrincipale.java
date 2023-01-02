@@ -36,6 +36,25 @@ public class FenetrePrincipale {
     private Button boutonThermometre = new Button();
 
     /**
+     * Attribut Button permettant de lancer la méthode clicFermer
+     */
+    @FXML
+    Button fermer;
+
+    /**
+     * Méthode permettant de fermer toutes les fenêtres
+     * @param event
+     */
+    @FXML
+    private void clicFermer(ActionEvent event) {
+
+        //Button fermerBis = (Button) event.getSource();
+        //Stage stage = (Stage) fermerBis.getScene().getWindow();
+        Stage stage = (Stage) fermer.getScene().getWindow();
+        stage.close();
+    }
+
+    /**
      * Méthode permettant de lancer la création d'une fenêtre Meteo
      * @param event
      * @throws IOException

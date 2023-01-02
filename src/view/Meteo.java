@@ -35,6 +35,20 @@ public class Meteo extends Visualisateur {
     @FXML
     Button fermer;
 
+    private void changeImage() throws IOException {
+        Image newImage;
+        if (((CapteurTemperature)getCapteur()).getTemperature() < 0){
+            newImage = new Image(getClass().getResource("/images/neige.png").openStream());
+        }
+        else if (((CapteurTemperature)getCapteur()).getTemperature() < 22) {
+            newImage = new Image(getClass().getResource("/images/nuages.png").openStream());
+        }
+        else{
+            newImage = new Image(getClass().getResource("/images/soleil.png").openStream());
+        }
+        imageView.setImage(newImage);
+    }
+
     /**
      * Constructeur de fenêtre Meteo
      * @param capteurMeteo
@@ -42,11 +56,10 @@ public class Meteo extends Visualisateur {
      */
     public Meteo(CapteurTemperature capteurMeteo) throws IOException {
         super(capteurMeteo);
-        update();
     }
 
     /**
-     * Méthode permettant de fermer la fenêtre
+     * Méthode permettant de fermer la fenêtre Meteo
      * @param event
      */
     @FXML
@@ -62,19 +75,15 @@ public class Meteo extends Visualisateur {
      * Méthode permettant de mettre à jour la valeur de l'attribut Image selon la valeur du CapteurTemperature
      * @throws IOException
      */
-    @Override
-    public void update() throws IOException {
 
-        Image newImage;
-        if ((((CapteurTemperature)capteur).getTemperature()) < 0){
-            newImage = new Image(getClass().getResource("/images/neige.png").openStream());
-        }
-        else if ((((CapteurTemperature)capteur).getTemperature()) < 22) {
-            newImage = new Image(getClass().getResource("/images/nuages.png").openStream());
-        }
-        else{
-            newImage = new Image(getClass().getResource("/images/soleil.png").openStream());
-        }
-        imageView.setImage(newImage);
+
+    public void initialize() {
+        ((CapteurTemperature)getCapteur()).temperatureProperty().addListener((__,___,newValue) -> {
+            try {
+                changeImage();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 }

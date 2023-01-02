@@ -32,6 +32,6 @@
         </GridPane>
     </bottom>
    <center>
-      <Slider fx:id="curseur" blockIncrement="1.0" max="56.0" min="-93.0" onMouseClicked="#onMouseClicked" onMouseDragged="#onMouseDragged" orientation="VERTICAL" BorderPane.alignment="CENTER" />
+      <Slider fx:id="curseur" blockIncrement="1.0" max="56.0" min="-93.0" orientation="VERTICAL" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

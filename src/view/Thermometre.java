@@ -1,5 +1,7 @@
 package view;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,7 +38,7 @@ public class Thermometre extends Visualisateur {
     Slider curseur;
 
     /**
-     * Méthode permettant de fermer les fenêtres Thermometre
+     * Méthode permettant de fermer la fenêtre Thermometre
      * @param event
      */
     @FXML
@@ -46,32 +48,12 @@ public class Thermometre extends Visualisateur {
         //Stage stage = (Stage) fermerBis.getScene().getWindow();
         Stage stage = (Stage) fermer.getScene().getWindow();
         stage.close();
-
     }
 
     /**
-     * Méthode permettant de mettre à jour la valeur de l'attribut Slider selon la valeur du CapteurTemperature
+     * Méthode d'initialisation bindant la valeur de l'attribut CapteurTemperature avec la valeur du Slider
      */
-    @Override
-    public void update() {
-        curseur.setValue(((CapteurTemperature)capteur).getTemperature());
-    }
-
-    /**
-     * Méthode permettant de faire changer la valeur de l'attribut CapteurTemperature selon la valeur du Slider
-     * @throws IOException
-     */
-    @FXML
-    public void onMouseClicked() throws IOException {
-        ((CapteurTemperature)capteur).setTemperature((int)curseur.getValue());
-    }
-
-    /**
-     * Méthode permettant de faire changer la valeur de l'attribut CapteurTemperature selon la valeur du Slider
-     * @throws IOException
-     */
-    @FXML
-    public void onMouseDragged() throws IOException {
-        ((CapteurTemperature)capteur).setTemperature((int)curseur.getValue());
+    public void initialize(){
+        curseur.valueProperty().bindBidirectional(((CapteurTemperature)getCapteur()).temperatureProperty());
     }
 }

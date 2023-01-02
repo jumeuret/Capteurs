@@ -1,9 +1,9 @@
 package modele;
 
 /**
- * Classe abstraite dérivée de Sujet permettant de créer des Capteur
+ * Classe abstraite permettant de créer des Capteur
  */
-public abstract class Capteur extends Sujet {
+public abstract class Capteur {
 
     /**
      * Attribut identifiant du Capteur

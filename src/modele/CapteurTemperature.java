@@ -1,5 +1,8 @@
 package modele;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+
 import java.io.IOException;
 
 /**
@@ -10,7 +13,15 @@ public class CapteurTemperature extends Capteur{
     /**
      * Attribut température du CapteurTemperature
      */
-    private int temperature;
+    protected DoubleProperty temperature = new SimpleDoubleProperty();
+
+    /**
+     * Propriété température du CapteurTemperature
+     * @return température du CapteurTemperature
+     */
+    public DoubleProperty temperatureProperty(){
+        return temperature;
+    };
 
     /**
      * Constructeur de CapteurTemperature
@@ -24,8 +35,8 @@ public class CapteurTemperature extends Capteur{
      * Getter de la température du CapteurTemperature
      * @return température du CapteurTemperature
      */
-    public int getTemperature() {
-        return temperature;
+    public double getTemperature(){
+        return this.temperature.get();
     }
 
     /**
@@ -33,9 +44,7 @@ public class CapteurTemperature extends Capteur{
      * @param temperature
      * @throws IOException
      */
-    public void setTemperature(int temperature) throws IOException {
-        this.temperature = temperature;
-        notifier();
+    private void setTemperature(double temperature){
+        this.temperature.set(temperature);
     }
-
 }

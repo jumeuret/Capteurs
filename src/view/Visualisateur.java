@@ -1,14 +1,13 @@
 package view;
 
 import modele.Capteur;
-import modele.Observateur;
 
 import java.io.IOException;
 
 /**
- * Classe abstraite dérivée d'Observateur permettant de créer des fenêtres
+ * Classe abstraite permettant de créer des fenêtres
  */
-public abstract class Visualisateur implements Observateur {
+public abstract class Visualisateur {
 
     /**
      * Attribut capteur des Visualisateur
@@ -29,13 +28,5 @@ public abstract class Visualisateur implements Observateur {
      */
     public Capteur getCapteur() {
         return capteur;
-    }
-
-    /**
-     * Méthode se lançant à l'initialisation permettant au Visualisateur d'observer le Capteur
-     * @throws IOException
-     */
-    public void initialize() throws IOException {
-        this.getCapteur().attacher(this);
     }
 }
