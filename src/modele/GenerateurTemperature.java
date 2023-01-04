@@ -4,7 +4,7 @@ import javafx.application.Platform;
 
 import java.util.Random;
 
-public class GenerateurTemperature extends Thread {
+public abstract class GenerateurTemperature extends Thread {
 
     private CapteurTemperatureActif capteurTemp;
 
@@ -12,17 +12,5 @@ public class GenerateurTemperature extends Thread {
         capteurTemp = capteur;
     }
 
-    public void run(){
-        while (true){
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            Platform.runLater(() -> {
-                capteurTemp.genererTemperature();
-            });
-            new GenerateurTemperature(capteurTemp).start();
-        }
-    }
+    public abstract void run();
 }

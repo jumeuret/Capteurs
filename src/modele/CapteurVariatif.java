@@ -41,10 +41,6 @@ public class CapteurVariatif extends CapteurTemperatureActif{
 
     @Override
     public void genererTemperature() {
-        Random random = new Random();
-        double randomDouble;
-        randomDouble = random.nextDouble(getMinVariation(), getMaxVariation());
-        randomDouble = getTemperatureInitiale() + randomDouble;
-        setTemperature(randomDouble);
+
     }
 }
