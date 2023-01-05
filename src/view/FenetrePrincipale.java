@@ -20,7 +20,7 @@ public class FenetrePrincipale {
     /**
      * Attribut CapteurTemperature des fenêtres
      */
-    private final CapteurRealiste capteurTemp = new CapteurRealiste("CapteurTemp",-5,50);
+    private final CapteurTemperature capteurTemp = new CapteurVariatif("CapteurTemp",-5,50);
 
     /**
      * Attribut Button lancant la méthode clickBoutonMeteo
@@ -83,6 +83,5 @@ public class FenetrePrincipale {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-        GenerateurTemperature auto = new GenerateurTemperature(capteurTemp);
     }
 }

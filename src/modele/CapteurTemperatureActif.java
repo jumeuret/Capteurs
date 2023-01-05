@@ -14,6 +14,8 @@ public abstract class CapteurTemperatureActif extends CapteurTemperature {
      */
     public CapteurTemperatureActif(String nomCapteur) {
         super(nomCapteur);
+        System.out.println("Hey !");
+        genererTemperature();
     }
 
     /**

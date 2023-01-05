@@ -41,6 +41,6 @@ public class CapteurVariatif extends CapteurTemperatureActif{
 
     @Override
     public void genererTemperature() {
-
+        new GenerateurTemperatureVariatif(this).start();
     }
 }
