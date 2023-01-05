@@ -6,7 +6,7 @@ import java.util.Random;
 
 public abstract class GenerateurTemperature extends Thread {
 
-    private CapteurTemperatureActif capteurTemp;
+    protected CapteurTemperatureActif capteurTemp;
 
     public GenerateurTemperature(CapteurTemperatureActif capteur){
         capteurTemp = capteur;

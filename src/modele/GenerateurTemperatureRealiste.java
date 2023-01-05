@@ -6,8 +6,6 @@ import java.util.Random;
 
 public class GenerateurTemperatureRealiste extends GenerateurTemperature {
 
-    private CapteurTemperatureActif capteurTemp;
-
     public GenerateurTemperatureRealiste(CapteurTemperatureActif capteur){
 
         super(capteur);
@@ -26,7 +24,6 @@ public class GenerateurTemperatureRealiste extends GenerateurTemperature {
                 randomDouble = random.nextDouble(((CapteurRealiste) capteurTemp).getMinTemperature(), ((CapteurRealiste) capteurTemp).getMaxTemperature());
                 capteurTemp.setTemperature(randomDouble);
             });
-            new GenerateurTemperatureRealiste(capteurTemp).start();
         }
     }
 }

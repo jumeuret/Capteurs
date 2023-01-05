@@ -6,8 +6,6 @@ import java.util.Random;
 
 public class GenerateurTemperatureAleatoire extends GenerateurTemperature {
 
-    private CapteurTemperatureActif capteurTemp;
-
     public GenerateurTemperatureAleatoire(CapteurTemperatureActif capteur){
 
         super(capteur);
@@ -26,7 +24,6 @@ public class GenerateurTemperatureAleatoire extends GenerateurTemperature {
                 randomDouble = random.nextDouble(-100, 100);
                 capteurTemp.setTemperature(randomDouble);
             });
-            new GenerateurTemperatureAleatoire(capteurTemp).start();
         }
     }
 }

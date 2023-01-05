@@ -38,10 +38,10 @@ public class Meteo extends Visualisateur {
 
     private void changeImage() throws IOException {
         Image newImage;
-        if (((CapteurTemperaturePassif)getCapteur()).getTemperature() < 0){
+        if (((CapteurTemperature)getCapteur()).getTemperature() < 0){
             newImage = new Image(getClass().getResource("/images/neige.png").openStream());
         }
-        else if (((CapteurTemperaturePassif)getCapteur()).getTemperature() < 22) {
+        else if (((CapteurTemperature)getCapteur()).getTemperature() < 22) {
             newImage = new Image(getClass().getResource("/images/nuages.png").openStream());
         }
         else{

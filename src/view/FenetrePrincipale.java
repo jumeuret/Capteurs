@@ -20,7 +20,7 @@ public class FenetrePrincipale {
     /**
      * Attribut CapteurTemperature des fenêtres
      */
-    private final CapteurTemperature capteurTemp = new CapteurVariatif("CapteurTemp",-5,50);
+    private final CapteurTemperature capteurTemp = new CapteurVariatif("CapteurTemp",-10,10);
 
     /**
      * Attribut Button lancant la méthode clickBoutonMeteo

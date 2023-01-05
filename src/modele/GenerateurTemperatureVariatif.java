@@ -6,8 +6,6 @@ import java.util.Random;
 
 public class GenerateurTemperatureVariatif extends GenerateurTemperature {
 
-    private CapteurTemperatureActif capteurTemp;
-
     public GenerateurTemperatureVariatif(CapteurTemperatureActif capteur){
 
         super(capteur);
@@ -16,7 +14,7 @@ public class GenerateurTemperatureVariatif extends GenerateurTemperature {
     public void run(){
         while (true){
             try {
-                Thread.sleep(100);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
@@ -27,7 +25,6 @@ public class GenerateurTemperatureVariatif extends GenerateurTemperature {
                 randomDouble = ((CapteurVariatif) capteurTemp).getTemperatureInitiale() + randomDouble;
                 capteurTemp.setTemperature(randomDouble);
             });
-            new GenerateurTemperatureVariatif(capteurTemp).start();
         }
     }
 }
