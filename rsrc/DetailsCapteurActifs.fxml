@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DetailsCapteursActifs">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -25,14 +24,14 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Spinner GridPane.columnIndex="3" amountToStepBy="0.5" />
+            <Spinner fx:id="nouveauTemps" amountToStepBy="0.5" GridPane.columnIndex="3" />
             <Label prefHeight="16.0" prefWidth="204.0" text="Temps entre les mises à jour :" />
-            <Label text="Label" GridPane.columnIndex="1" />
+            <Label fx:id="temps" text="Label" GridPane.columnIndex="1" />
             <Label text="s" GridPane.columnIndex="2" />
             <Label text="Stratégie de génération :" GridPane.rowIndex="1" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-            <ComboBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <ToggleButton mnemonicParsing="false" text="ToggleButton" GridPane.rowIndex="2" />
+            <Label fx:id="strategie" text="Label" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <ComboBox fx:id="nouvelleStrategie" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ToggleButton fx:id="generationAuto" mnemonicParsing="false" text="ToggleButton" GridPane.rowIndex="2" />
          </children>
       </GridPane>
    </center>

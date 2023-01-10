@@ -11,7 +11,7 @@ import modele.Registre;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VueCapteurs {
+public class VueCapteurs extends TreeItem {
 
     @FXML
     TreeView<Capteur> arbreCapteurs;
