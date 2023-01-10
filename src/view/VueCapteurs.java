@@ -1,10 +1,9 @@
 package view;
 
+import data.Stub;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
+import javafx.util.Callback;
 import modele.Capteur;
 import modele.Registre;
 
@@ -31,5 +30,19 @@ public class VueCapteurs extends TreeItem {
         nom.textProperty().bindBidirectional(nouveauNom.textProperty());
         //arbreCapteurs.getSelectionModel().getSelectedItem().
         //arbreCapteurs.setRoot(new TreeItem(new Registre()));
+
+        Stub charge = new Stub();
+        Registre maison = charge.chargerDonnees();
+
+
+        /*
+        arbreCapteurs.setEditable(true);
+        arbreCapteurs.setCellFactory(new Callback<TreeView<String>, TreeCell<String>>(){
+            @Override
+            public TreeCell<String> call(TreeView<String> p) {
+                return new VueCapteurFactory();
+            }
+        });
+         */
     }
 }

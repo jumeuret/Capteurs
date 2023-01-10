@@ -11,7 +11,7 @@ import java.util.*;
  * Classe dérivée de CapteurTemperature permettant de créer des CapteurTemperature au comportement actif ( génération automatique de valeurs )
  */
 
-public abstract class CapteurTemperatureVirtuel extends CapteurTemperatureBidule {
+public class CapteurTemperatureVirtuel extends CapteurTemperatureBidule {
 
     private Map<Integer, CapteurTemperatureBidule> listeCapteurs = new HashMap<>();
 
