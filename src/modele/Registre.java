@@ -11,4 +11,8 @@ public class Registre {
     public void ajouterCapteur(Capteur capteur){
         listeCapteurs.add(capteur);
     }
+
+    public List<Capteur> getListeCapteurs() {
+        return listeCapteurs;
+    }
 }

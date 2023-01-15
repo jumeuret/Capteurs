@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
 <BorderPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.FenetrePrincipale">
    <center>
       <GridPane>
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
@@ -21,13 +21,14 @@
          </rowConstraints>
          <Button fx:id="boutonMeteo" mnemonicParsing="false" onAction="#clickBoutonMeteo" text="Meteo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          <Button fx:id="boutonThermometre" mnemonicParsing="false" onAction="#clickBoutonThermometre" text="Thermometre" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+         <Button fx:id="boutonTreeView" mnemonicParsing="false" onAction="#clickBoutonTreeView" text="TreeView" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       </GridPane>
    </center>
    <top>
 
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <buttons>
-            <Button fx:id="fermer" mnemonicParsing="false" text="X" onAction="#clicFermer"/>
+            <Button fx:id="fermer" mnemonicParsing="false" onAction="#clicFermer" text="X" />
          </buttons>
       </ButtonBar>
    </top>

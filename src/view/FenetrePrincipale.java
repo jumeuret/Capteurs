@@ -34,6 +34,9 @@ public class FenetrePrincipale {
     @FXML
     private Button boutonThermometre = new Button();
 
+    @FXML
+    private Button boutonTreeView = new Button();
+
     /**
      * Attribut Button permettant de lancer la méthode clicFermer
      */
@@ -79,6 +82,15 @@ public class FenetrePrincipale {
         Thermometre thermometre = new Thermometre(capteurTemp);
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Thermometre.fxml"));
         fxml.setController(thermometre);
+        Scene scene = new Scene(fxml.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void clickBoutonTreeView(ActionEvent event) throws IOException {
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Capteurs.fxml"));
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
         stage.setScene(scene);

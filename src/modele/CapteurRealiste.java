@@ -23,6 +23,7 @@ public class CapteurRealiste extends CapteurTemperatureActif{
             minTemperature = min;
         }
         maxTemperature = max;
+        genererTemperature();
     }
 
     public double getMaxTemperature() {
@@ -36,9 +37,6 @@ public class CapteurRealiste extends CapteurTemperatureActif{
     @Override
     public void genererTemperature() {
 
-        Random random = new Random();
-        double randomDouble;
-        randomDouble = random.nextDouble(getMinTemperature(), getMaxTemperature());
-        setTemperature(randomDouble);
+        new GenerateurTemperatureRealiste(this).start();
     }
 }
