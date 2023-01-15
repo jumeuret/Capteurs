@@ -8,22 +8,20 @@ public class CapteurVariatif extends CapteurTemperatureActif{
 
     private double maxVariation;
 
-    private double temperatureInitiale;
-
     /**
      * Constructeur de CapteurVariatif
      *
      * @param nomCapteur
      */
-    public CapteurVariatif(String nomCapteur, double min, double max) {
-        super(nomCapteur);
+    public CapteurVariatif(String nomCapteur, double min, double max, Bipper bipper) {
+        super(nomCapteur, bipper);
         minVariation = min;
         maxVariation = max;
+        genererTemperature();
     }
 
     @Override
     public void setTemperature(double temperature) {
-        temperatureInitiale = super.getTemperature();
         super.setTemperature(temperature);
     }
 
@@ -35,12 +33,9 @@ public class CapteurVariatif extends CapteurTemperatureActif{
         return minVariation;
     }
 
-    public double getTemperatureInitiale() {
-        return temperatureInitiale;
-    }
-
     @Override
     public void genererTemperature() {
-        new GenerateurTemperatureVariatif(this).start();
+        new GenerateurTemperatureVariatif(this, bipper).change();
+        bipper.start();
     }
 }

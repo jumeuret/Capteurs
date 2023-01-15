@@ -29,6 +29,8 @@ public class CreationCapteurTemperature {
 
     CapteurTemperature capteur;
 
+    Bipper bipper = new Bipper(100);
+
     public void clicPassif(ActionEvent event) {
         capteur = new CapteurTemperaturePassif("temporaire");
         CreationCapteurTemperaturePassif construction = new CreationCapteurTemperaturePassif((CapteurTemperaturePassif) capteur);
@@ -36,19 +38,19 @@ public class CreationCapteurTemperature {
     }
 
     public void clicVirtuel(ActionEvent event) {
-        capteur = new CapteurTemperatureVirtuel("temporaire");
+        capteur = new CapteurTemperatureVirtuel("temporaire", bipper);
         CreationCapteurTemperatureVirtuel construction = new CreationCapteurTemperatureVirtuel((CapteurTemperatureVirtuel) capteur);
         details.setCenter(construction.grid);
     }
 
     public void clicRealiste(ActionEvent event) {
-        capteur = new CapteurRealiste("temporaire",0,0);
+        capteur = new CapteurRealiste("temporaire",0,0, bipper);
         CreationCapteurTemperatureActif construction = new CreationCapteurTemperatureActif((CapteurRealiste) capteur);
         details.setCenter(construction.grid);
     }
 
     public void clicVariatif(ActionEvent event) {
-        capteur = new CapteurVariatif("temporaire",0,0);
+        capteur = new CapteurVariatif("temporaire",0,0, bipper);
         CreationCapteurTemperatureActif construction = new CreationCapteurTemperatureActif((CapteurVariatif) capteur);
         details.setCenter(construction.grid);
     }

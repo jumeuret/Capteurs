@@ -5,13 +5,14 @@ import com.sun.javafx.fxml.builder.ProxyBuilder;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
  * Classe dérivée de CapteurTemperature permettant de créer des CapteurTemperature au comportement actif ( génération automatique de valeurs )
  */
 
-public abstract class CapteurTemperatureVirtuel extends CapteurTemperatureBidule {
+public class CapteurTemperatureVirtuel extends CapteurTemperatureBidule {
 
     private Map<Integer, CapteurTemperatureBidule> listeCapteurs = new HashMap<>();
 
@@ -19,15 +20,17 @@ public abstract class CapteurTemperatureVirtuel extends CapteurTemperatureBidule
      * Constructeur de CapteurTemperatureVirtuel
      * @param nomCapteur
      */
-    public CapteurTemperatureVirtuel(String nomCapteur) {
-        super(nomCapteur);
+    public CapteurTemperatureVirtuel(String nomCapteur, Bipper bipper) {
+        super(nomCapteur, bipper);
 
         genererTemperature();
     }
 
     public void ajouterCapteur(CapteurTemperatureBidule capteur, int poids){
         listeCapteurs.putIfAbsent(poids, capteur);
-        //capteur.temperatureProperty().addListener();
+        capteur.temperatureProperty().addListener((o, oldValue, newValue) -> {
+            genererTemperature();
+        });
     }
 
     /**

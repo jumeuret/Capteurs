@@ -17,10 +17,12 @@ import java.io.IOException;
  */
 public class FenetrePrincipale {
 
+    private Bipper bipper = new Bipper(500);
+
     /**
      * Attribut CapteurTemperature des fenêtres
      */
-    private final CapteurTemperature capteurTemp = new CapteurVariatif("CapteurTemp",-10,10);
+    private final CapteurTemperature capteurTemp = new CapteurVariatif("CapteurTemp",-15,15, bipper);
 
     /**
      * Attribut Button lancant la méthode clickBoutonMeteo

@@ -12,9 +12,8 @@ public abstract class CapteurTemperatureActif extends CapteurTemperatureBidule {
      * Constructeur de CapteurTemperaturePassif
      * @param nomCapteur
      */
-    public CapteurTemperatureActif(String nomCapteur) {
-        super(nomCapteur);
-        genererTemperature();
+    public CapteurTemperatureActif(String nomCapteur, Bipper bipper) {
+        super(nomCapteur, bipper);
     }
 
     /**

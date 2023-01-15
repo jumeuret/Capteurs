@@ -6,24 +6,15 @@ import java.util.Random;
 
 public class GenerateurTemperatureRealiste extends GenerateurTemperature {
 
-    public GenerateurTemperatureRealiste(CapteurTemperatureActif capteur){
+    public GenerateurTemperatureRealiste(CapteurTemperatureActif capteur, Bipper bipper){
 
-        super(capteur);
+        super(capteur, bipper);
     }
 
-    public void run(){
-        while (true){
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            Platform.runLater(() -> {
-                Random random = new Random();
-                double randomDouble;
-                randomDouble = random.nextDouble(((CapteurRealiste) capteurTemp).getMinTemperature(), ((CapteurRealiste) capteurTemp).getMaxTemperature());
-                capteurTemp.setTemperature(randomDouble);
-            });
-        }
+    public void change(){
+        Random random = new Random();
+        double randomDouble;
+        randomDouble = random.nextDouble(((CapteurRealiste) capteurTemp).getMinTemperature(), ((CapteurRealiste) capteurTemp).getMaxTemperature());
+        capteurTemp.setTemperature(randomDouble);
     }
 }

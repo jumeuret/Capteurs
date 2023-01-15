@@ -14,8 +14,8 @@ public class CapteurRealiste extends CapteurTemperatureActif{
      *
      * @param nomCapteur
      */
-    public CapteurRealiste(String nomCapteur, double min, double max) {
-        super(nomCapteur);
+    public CapteurRealiste(String nomCapteur, double min, double max, Bipper bipper) {
+        super(nomCapteur, bipper);
         if (min < -213){
             min = -213;
         }
@@ -23,6 +23,7 @@ public class CapteurRealiste extends CapteurTemperatureActif{
             minTemperature = min;
         }
         maxTemperature = max;
+        genererTemperature();
     }
 
     public double getMaxTemperature() {
@@ -36,9 +37,7 @@ public class CapteurRealiste extends CapteurTemperatureActif{
     @Override
     public void genererTemperature() {
 
-        Random random = new Random();
-        double randomDouble;
-        randomDouble = random.nextDouble(getMinTemperature(), getMaxTemperature());
-        setTemperature(randomDouble);
+        new GenerateurTemperatureRealiste(this, bipper);
+        bipper.run();
     }
 }

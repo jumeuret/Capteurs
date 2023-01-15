@@ -10,12 +10,15 @@ import java.io.IOException;
  */
 public abstract class CapteurTemperatureBidule extends CapteurTemperature{
 
+    protected Bipper bipper;
+
     /**
      * Constructeur de CapteurTemperature
      * @param nomCapteur
      */
-    public CapteurTemperatureBidule(String nomCapteur) {
+    public CapteurTemperatureBidule(String nomCapteur, Bipper bipper) {
         super(nomCapteur);
+        this.bipper = bipper;
     }
 
     /**
