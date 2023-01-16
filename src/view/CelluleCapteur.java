@@ -19,6 +19,7 @@ public class CelluleCapteur extends TreeCell<Capteur> {
         super.updateItem(capteur, empty);
         if (capteur == null || empty) {
             setGraphic(null);
+            setText(null);
         }
         else {
             ImageView image = new ImageView();

@@ -1,10 +1,13 @@
 package view;
 
 import data.Stub;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.util.Callback;
 import modele.*;
 
@@ -18,19 +21,17 @@ public class VueCapteurs {
     TreeView<Capteur> arbreCapteurs;
 
     @FXML
-    Label nom;
+    HBox ucDetailsGenerauxEmplacement;
 
-    @FXML
-    Label id;
-
-    @FXML
-    TextField nouveauNom;
+    UCDetailsgeneraux ucDetailsGeneraux = new UCDetailsgeneraux();
 
     private List<Capteur> listeCapteurs = new ArrayList<>();
 
+    public VueCapteurs() throws IOException {
+    }
+
     public void initialize(){
 
-        nom.textProperty().bindBidirectional(nouveauNom.textProperty());
         //arbreCapteurs.getSelectionModel().getSelectedItem().
         //arbreCapteurs.setRoot(new TreeItem(new Registre()));
 
@@ -38,14 +39,44 @@ public class VueCapteurs {
         Registre maison = charge.chargerDonnees();
         Capteur racine = new CapteurTemperature("racine");
         TreeItem<Capteur> laRacine = new TreeItem<>(racine);
-        //arbreCapteurs.setShowRoot(false);
 
         for (Capteur capteur: maison.getListeCapteurs()) {
             laRacine.getChildren().add(new TreeItem<>(capteur));
         }
-        arbreCapteurs.setCellFactory(param -> new CelluleCapteur());
         arbreCapteurs.setRoot(laRacine);
-        //laRacine.setExpanded(true);
+        arbreCapteurs.setShowRoot(false);
+        arbreCapteurs.setCellFactory(param -> new CelluleCapteur());
+
+        arbreCapteurs.getSelectionModel().selectedItemProperty().addListener((__, oldValue, newValue) -> {
+            if (oldValue != null){
+                //unbind bidirectionnal
+                ucDetailsGeneraux.unbindToOldValues(oldValue.getValue());
+            }
+            if (newValue != null){
+                ucDetailsGenerauxEmplacement.getChildren().clear();
+                //Afficher détails généraux
+                ucDetailsGenerauxEmplacement.getChildren().add(ucDetailsGeneraux);
+                //bind détails généraux
+                ucDetailsGeneraux.bindToNewValues(newValue.getValue());
+                //Mettre UC de type
+                if (newValue.getValue() instanceof CapteurTemperatureVirtuel){
+
+                }
+                //Bind UC par type
+            }
+        });
+
+        //nom.textProperty().bind(arbreCapteurs.getSelectionModel().getSelectedItem().getValue().nomProperty());
+
+        /*if (arbreCapteurs.getSelectionModel().getSelectedItem().getValue() instanceof CapteurTemperatureVirtuel){
+            DetailsCapteursVirtuels infosVirtuel = new DetailsCapteursVirtuels();
+            infos.setCenter(infosVirtuel.contenu);
+        }
+        else if(arbreCapteurs.getSelectionModel().getSelectedItem().getValue() instanceof CapteurTemperatureActif){
+            DetailsCapteursActifs infosActif = new DetailsCapteursActifs();
+            infos.setCenter(infosActif.contenu);
+        }*/
+
 
         /*
         TreeItem<String> racine = new TreeItem<>();
