@@ -2,38 +2,24 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 import modele.Capteur;
 
 import java.io.IOException;
 
-public class UCDetailsgeneraux extends HBox {
+public class UCDetailsCapteursVirtuels extends HBox {
 
     @FXML
-    Label nom;
+    TableView<Capteur> tableau;
 
-    @FXML
-    Label id;
-
-    @FXML
-    TextField nouveauNom;
-
-    @FXML
-    HBox ucDetailsCapteurEmplacement;
-
-    public UCDetailsgeneraux() throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/UCDetailsGeneraux.fxml"));
+    public UCDetailsCapteursVirtuels() throws IOException {
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/UCDetailsCapteurVirtuels.fxml"));
         fxml.setController(this);
         fxml.setRoot(this);
         fxml.load();
     }
-
-    public void initialize(){
-
-    }
-
+/*
     public void bindToNewValues(Capteur capteur){
         nom.textProperty().bindBidirectional(nouveauNom.textProperty());
         nom.textProperty().bindBidirectional(capteur.nomProperty());
@@ -43,4 +29,5 @@ public class UCDetailsgeneraux extends HBox {
     public void unbindToOldValues(Capteur capteur){
         nom.textProperty().unbindBidirectional(capteur.nomProperty());
     }
+ */
 }

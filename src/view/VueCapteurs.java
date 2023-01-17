@@ -23,7 +23,14 @@ public class VueCapteurs {
     @FXML
     HBox ucDetailsGenerauxEmplacement;
 
+    @FXML
+    HBox ucDetailsCapteurEmplacement;
+
     UCDetailsgeneraux ucDetailsGeneraux = new UCDetailsgeneraux();
+
+    UCDetailsCapteursActifs ucDetailsCapteursActifs = new UCDetailsCapteursActifs();
+
+    UCDetailsCapteursVirtuels ucDetailsCapteursVirtuels = new UCDetailsCapteursVirtuels();
 
     private List<Capteur> listeCapteurs = new ArrayList<>();
 
@@ -58,11 +65,16 @@ public class VueCapteurs {
                 ucDetailsGenerauxEmplacement.getChildren().add(ucDetailsGeneraux);
                 //bind détails généraux
                 ucDetailsGeneraux.bindToNewValues(newValue.getValue());
-                //Mettre UC de type
+                //Mettre UC de type & Bind UC par type
                 if (newValue.getValue() instanceof CapteurTemperatureVirtuel){
+                    ucDetailsCapteurEmplacement.getChildren().add(ucDetailsCapteursVirtuels);
+                    ucDetailsCapteursVirtuels.
+                }
+                else if(newValue.getValue() instanceof CapteurTemperatureActif){
+                    ucDetailsCapteurEmplacement.getChildren().add(ucDetailsCapteursActifs);
 
                 }
-                //Bind UC par type
+
             }
         });
 

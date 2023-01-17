@@ -1,5 +1,6 @@
 package view;
 
+import javafx.beans.property.Property;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
@@ -18,7 +19,7 @@ public class UCDetailsCapteursActifs extends HBox {
     Label temps;
 
     @FXML
-    Spinner nouveauTemps;
+    Spinner<Double> nouveauTemps;
 
     @FXML
     Label strategie;
@@ -38,15 +39,12 @@ public class UCDetailsCapteursActifs extends HBox {
         fxml.setRoot(this);
         fxml.load();
     }
-/*
+
     public void bindToNewValues(Capteur capteur){
-        nom.textProperty().bindBidirectional(nouveauNom.textProperty());
-        nom.textProperty().bindBidirectional(capteur.nomProperty());
-        id.textProperty().bind(capteur.idProperty().asString());
+        //temps.textProperty().bindBidirectional(nouveauTemps.valueFactoryProperty().get().valueProperty().);
+        //temps.textProperty().bindBidirectional();
     }
 
     public void unbindToOldValues(Capteur capteur){
-        nom.textProperty().unbindBidirectional(capteur.nomProperty());
     }
-    */
 }
