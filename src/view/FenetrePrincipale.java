@@ -1,14 +1,13 @@
 package view;
 
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import modele.*;
+import modele.capteur.CapteurTemperature;
+import modele.capteur.CapteurVariatif;
 
 import java.io.IOException;
 
@@ -64,7 +63,7 @@ public class FenetrePrincipale {
     @FXML
     private void clickBoutonMeteo(ActionEvent event) throws IOException {
         Meteo meteo = new Meteo(capteurTemp);
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Meteo.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Meteo.fxml"));
         fxml.setController(meteo);
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
@@ -80,7 +79,7 @@ public class FenetrePrincipale {
     @FXML
     private void clickBoutonThermometre(ActionEvent event) throws IOException {
         Thermometre thermometre = new Thermometre(capteurTemp);
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Thermometre.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Thermometre.fxml"));
         fxml.setController(thermometre);
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
@@ -90,7 +89,7 @@ public class FenetrePrincipale {
 
     @FXML
     private void clickBoutonTreeView(ActionEvent event) throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/Capteurs.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Capteurs.fxml"));
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
         stage.setScene(scene);

@@ -1,8 +1,6 @@
-package modele;
+package modele.generateur;
 
-import javafx.application.Platform;
-
-import java.util.Random;
+import modele.capteur.CapteurTemperatureActif;
 
 public abstract class GenerateurTemperature extends Thread {
 

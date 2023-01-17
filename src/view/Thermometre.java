@@ -1,17 +1,11 @@
 package view;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.stage.Stage;
-import modele.Capteur;
-import modele.CapteurTemperature;
-import modele.CapteurTemperaturePassif;
-
-import java.io.IOException;
+import modele.capteur.CapteurTemperature;
 
 /**
  * Classe dérivée de Visualisateur Code Behind de Thermometre.fxml

@@ -1,9 +1,4 @@
-package modele;
-
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-
-import java.io.IOException;
+package modele.capteur;
 
 /**
  * Classe dérivée de Capteur permettant de créer des CapteurTemperature

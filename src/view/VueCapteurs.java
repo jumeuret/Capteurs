@@ -1,15 +1,14 @@
 package view;
 
 import data.Stub;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.util.Callback;
 import modele.*;
+import modele.capteur.Capteur;
+import modele.capteur.CapteurTemperature;
+import modele.capteur.CapteurTemperatureActif;
+import modele.capteur.CapteurTemperatureVirtuel;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,11 +67,11 @@ public class VueCapteurs {
                 //Mettre UC de type & Bind UC par type
                 if (newValue.getValue() instanceof CapteurTemperatureVirtuel){
                     ucDetailsCapteurEmplacement.getChildren().add(ucDetailsCapteursVirtuels);
-                    ucDetailsCapteursVirtuels.
+                    //
                 }
                 else if(newValue.getValue() instanceof CapteurTemperatureActif){
                     ucDetailsCapteurEmplacement.getChildren().add(ucDetailsCapteursActifs);
-
+                    //
                 }
 
             }

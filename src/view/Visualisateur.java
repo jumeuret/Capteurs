@@ -1,8 +1,6 @@
 package view;
 
-import modele.Capteur;
-
-import java.io.IOException;
+import modele.capteur.Capteur;
 
 /**
  * Classe abstraite permettant de créer des fenêtres

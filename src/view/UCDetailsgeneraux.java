@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import modele.Capteur;
+import modele.capteur.Capteur;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ public class UCDetailsgeneraux extends HBox {
     HBox ucDetailsCapteurEmplacement;
 
     public UCDetailsgeneraux() throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/UCDetailsGeneraux.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/UCDetailsGeneraux.fxml"));
         fxml.setController(this);
         fxml.setRoot(this);
         fxml.load();

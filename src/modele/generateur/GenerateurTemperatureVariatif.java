@@ -1,6 +1,8 @@
-package modele;
+package modele.generateur;
 
 import javafx.application.Platform;
+import modele.capteur.CapteurTemperatureActif;
+import modele.capteur.CapteurVariatif;
 
 import java.util.Random;
 

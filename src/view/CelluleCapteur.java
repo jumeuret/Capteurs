@@ -1,14 +1,11 @@
 package view;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TreeCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import modele.Capteur;
-import modele.CapteurTemperature;
-import modele.CapteurTemperaturePassif;
-import modele.CapteurTemperatureVirtuel;
+import modele.capteur.Capteur;
+import modele.capteur.CapteurTemperaturePassif;
+import modele.capteur.CapteurTemperatureVirtuel;
 
 import java.io.IOException;
 

@@ -1,6 +1,6 @@
-package modele;
+package modele.capteur;
 
-import java.util.Random;
+import modele.generateur.GenerateurTemperatureVariatif;
 
 public class CapteurVariatif extends CapteurTemperatureActif{
 

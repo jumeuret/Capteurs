@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
-import modele.Capteur;
+import modele.capteur.Capteur;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ public class UCDetailsCapteursVirtuels extends HBox {
     TableView<Capteur> tableau;
 
     public UCDetailsCapteursVirtuels() throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/UCDetailsCapteurVirtuels.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/UCDetailsCapteurVirtuels.fxml"));
         fxml.setController(this);
         fxml.setRoot(this);
         fxml.load();

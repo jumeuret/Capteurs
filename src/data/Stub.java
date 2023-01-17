@@ -1,8 +1,10 @@
 package data;
 
 import modele.*;
-
-import java.util.List;
+import modele.capteur.CapteurRealiste;
+import modele.capteur.CapteurTemperaturePassif;
+import modele.capteur.CapteurTemperatureVirtuel;
+import modele.capteur.CapteurVariatif;
 
 public class Stub {
 

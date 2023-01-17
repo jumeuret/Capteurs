@@ -1,6 +1,6 @@
 package console;
 
-import modele.CapteurTemperature;
+import modele.capteur.CapteurTemperature;
 import view.Meteo;
 import view.Thermometre;
 

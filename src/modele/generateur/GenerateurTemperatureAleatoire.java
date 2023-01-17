@@ -1,12 +1,13 @@
-package modele;
+package modele.generateur;
 
 import javafx.application.Platform;
+import modele.capteur.CapteurTemperatureActif;
 
 import java.util.Random;
 
-public class GenerateurTemperatureRealiste extends GenerateurTemperature {
+public class GenerateurTemperatureAleatoire extends GenerateurTemperature {
 
-    public GenerateurTemperatureRealiste(CapteurTemperatureActif capteur){
+    public GenerateurTemperatureAleatoire(CapteurTemperatureActif capteur){
 
         super(capteur);
     }
@@ -21,7 +22,7 @@ public class GenerateurTemperatureRealiste extends GenerateurTemperature {
             Platform.runLater(() -> {
                 Random random = new Random();
                 double randomDouble;
-                randomDouble = random.nextDouble(((CapteurRealiste) capteurTemp).getMinTemperature(), ((CapteurRealiste) capteurTemp).getMaxTemperature());
+                randomDouble = random.nextDouble(-100, 100);
                 capteurTemp.setTemperature(randomDouble);
             });
         }

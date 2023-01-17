@@ -1,9 +1,4 @@
-package modele;
-
-import com.sun.javafx.collections.MappingChange;
-import com.sun.javafx.fxml.builder.ProxyBuilder;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+package modele.capteur;
 
 import java.util.*;
 

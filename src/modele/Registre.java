@@ -1,7 +1,8 @@
 package modele;
 
+import modele.capteur.Capteur;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Registre {

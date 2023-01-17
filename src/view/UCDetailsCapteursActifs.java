@@ -1,6 +1,5 @@
 package view;
 
-import javafx.beans.property.Property;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
@@ -9,7 +8,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import modele.Capteur;
+import modele.capteur.Capteur;
 
 import java.io.IOException;
 
@@ -34,7 +33,7 @@ public class UCDetailsCapteursActifs extends HBox {
     BorderPane contenu;
 
     public UCDetailsCapteursActifs() throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/UCDetailsCapteurActifs.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/UCDetailsCapteurActifs.fxml"));
         fxml.setController(this);
         fxml.setRoot(this);
         fxml.load();

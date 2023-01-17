@@ -6,11 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import modele.Capteur;
-import modele.CapteurTemperature;
-import modele.CapteurTemperaturePassif;
+import modele.capteur.CapteurTemperature;
 
-import java.awt.*;
 import java.io.IOException;
 
 /**

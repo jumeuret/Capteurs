@@ -1,6 +1,4 @@
-package modele;
-
-import java.io.IOException;
+package modele.capteur;
 
 /**
  * Classe dérivée de CapteurTemperature permettant de créer des CapteurTemperature au comportement actif ( génération automatique de valeurs )
