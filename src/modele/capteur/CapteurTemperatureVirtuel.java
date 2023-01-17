@@ -6,9 +6,9 @@ import java.util.*;
  * Classe dérivée de CapteurTemperature permettant de créer des CapteurTemperature au comportement actif ( génération automatique de valeurs )
  */
 
-public class CapteurTemperatureVirtuel extends CapteurTemperatureBidule {
+public class CapteurTemperatureVirtuel extends CapteurTemperature {
 
-    private Map<Integer, CapteurTemperatureBidule> listeCapteurs = new HashMap<>();
+    private Map<Integer, CapteurTemperature> listeCapteurs = new HashMap<>();
 
     /**
      * Constructeur de CapteurTemperatureVirtuel
@@ -20,7 +20,11 @@ public class CapteurTemperatureVirtuel extends CapteurTemperatureBidule {
         genererTemperature();
     }
 
-    public void ajouterCapteur(CapteurTemperatureBidule capteur, int poids){
+    public Map<Integer, CapteurTemperature> getListeCapteurs() {
+        return listeCapteurs;
+    }
+
+    public void ajouterCapteur(CapteurTemperature capteur, int poids){
         listeCapteurs.putIfAbsent(poids, capteur);
         //capteur.temperatureProperty().addListener();
     }
@@ -30,7 +34,7 @@ public class CapteurTemperatureVirtuel extends CapteurTemperatureBidule {
      */
     public void genererTemperature(){
         double moyenne = 0;
-        for (CapteurTemperatureBidule capteur: listeCapteurs.values()) {
+        for (CapteurTemperature capteur: listeCapteurs.values()) {
             for (int poids : listeCapteurs.keySet()){
                 moyenne = moyenne + poids * capteur.getTemperature();
             }

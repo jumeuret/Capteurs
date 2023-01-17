@@ -4,7 +4,7 @@ package modele.capteur;
  * Classe dérivée de CapteurTemperature permettant de créer des CapteurTemperature au comportement actif ( génération automatique de valeurs )
  */
 
-public abstract class CapteurTemperatureActif extends CapteurTemperatureBidule {
+public abstract class CapteurTemperatureActif extends CapteurTemperature {
 
     /**
      * Constructeur de CapteurTemperaturePassif

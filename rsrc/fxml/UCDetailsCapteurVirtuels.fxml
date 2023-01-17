@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 
 <?import javafx.scene.layout.GridPane?>
-<fx:root type="HBox" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" prefHeight="200.0" prefWidth="200.0">
+<fx:root type="HBox" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" prefHeight="200.0" prefWidth="500.0">
     <GridPane BorderPane.alignment="CENTER">
         <Label text="Capteurs observés :" BorderPane.alignment="CENTER" />
         <Button mnemonicParsing="false" text="Ajouter nouveau capteur observé" BorderPane.alignment="CENTER" />

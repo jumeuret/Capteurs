@@ -4,7 +4,6 @@ import data.Stub;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
-import modele.*;
 import modele.capteur.Capteur;
 import modele.capteur.CapteurTemperature;
 import modele.capteur.CapteurTemperatureActif;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VueCapteurs {
+public class AffichageCapteurs {
 
     @FXML
     TreeView<Capteur> arbreCapteurs;
@@ -33,7 +32,7 @@ public class VueCapteurs {
 
     private List<Capteur> listeCapteurs = new ArrayList<>();
 
-    public VueCapteurs() throws IOException {
+    public AffichageCapteurs() throws IOException {
     }
 
     public void initialize(){
@@ -42,24 +41,23 @@ public class VueCapteurs {
         //arbreCapteurs.setRoot(new TreeItem(new Registre()));
 
         Stub charge = new Stub();
-        Registre maison = charge.chargerDonnees();
-        Capteur racine = new CapteurTemperature("racine");
-        TreeItem<Capteur> laRacine = new TreeItem<>(racine);
-
-        for (Capteur capteur: maison.getListeCapteurs()) {
-            laRacine.getChildren().add(new TreeItem<>(capteur));
-        }
-        arbreCapteurs.setRoot(laRacine);
-        arbreCapteurs.setShowRoot(false);
+        CapteurTemperatureVirtuel maison = charge.chargerDonnees();
+        CapteurVue capteurVue = new CapteurVue();
+        //TreeItem<Capteur> laRacine = new TreeItem<>(maison);
+        TreeItem<Capteur> arbre = capteurVue.convert(maison);
+        //TreeItem<Capteur> arbre = capteurVue.convert(laRacine);
+        arbreCapteurs.setRoot(arbre);
         arbreCapteurs.setCellFactory(param -> new CelluleCapteur());
 
         arbreCapteurs.getSelectionModel().selectedItemProperty().addListener((__, oldValue, newValue) -> {
             if (oldValue != null){
                 //unbind bidirectionnal
                 ucDetailsGeneraux.unbindToOldValues(oldValue.getValue());
+
             }
             if (newValue != null){
                 ucDetailsGenerauxEmplacement.getChildren().clear();
+                ucDetailsCapteurEmplacement.getChildren().clear();
                 //Afficher détails généraux
                 ucDetailsGenerauxEmplacement.getChildren().add(ucDetailsGeneraux);
                 //bind détails généraux
@@ -73,7 +71,6 @@ public class VueCapteurs {
                     ucDetailsCapteurEmplacement.getChildren().add(ucDetailsCapteursActifs);
                     //
                 }
-
             }
         });
 

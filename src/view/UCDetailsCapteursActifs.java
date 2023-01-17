@@ -1,5 +1,6 @@
 package view;
 
+import javafx.beans.property.Property;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ComboBox;
@@ -37,10 +38,25 @@ public class UCDetailsCapteursActifs extends HBox {
         fxml.setController(this);
         fxml.setRoot(this);
         fxml.load();
+        nouveauTemps.setEditable(true);
+    }
+
+    public void initialize(){
+        generationAuto.selectedProperty().addListener((__, oldValue, newValue) -> {
+            if (newValue){
+                //Stopper génération auto
+            }
+            else{
+                //Lancer génération auto
+            }
+        });
+
+        //nouveauTemps.
     }
 
     public void bindToNewValues(Capteur capteur){
-        //temps.textProperty().bindBidirectional(nouveauTemps.valueFactoryProperty().get().valueProperty().);
+        //temps.textProperty().bindBidirectional(nouveauTemps.editorProperty());
+        //temps.textProperty().bindBidirectional((Property<Double>) nouveauTemps.valueFactoryProperty().get().valueProperty());
         //temps.textProperty().bindBidirectional();
     }
 
