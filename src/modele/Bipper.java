@@ -4,6 +4,7 @@ import javafx.application.Platform;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Bipper extends Thread {
 
@@ -11,8 +12,11 @@ public class Bipper extends Thread {
 
     private long intervale;
 
+    private AtomicBoolean enMarche = new AtomicBoolean(false);
+
     public Bipper(long intervale){
         this.intervale = intervale;
+        enMarche.set(true);
     }
 
     public void observer(GenerateurTemperature generateur){
@@ -25,8 +29,12 @@ public class Bipper extends Thread {
         }
     }
 
+    public void stopped(){
+        enMarche.set(false);
+    }
+
     public void run(){
-        while (true) {
+        while (enMarche.get()) {
             try {
                 Thread.sleep(intervale);
             } catch (InterruptedException e) {
