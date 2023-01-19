@@ -88,7 +88,18 @@ public class FenetrePrincipale {
     }
 
     @FXML
-    private void clickBoutonTreeView(ActionEvent event) throws IOException {
+    private void clickBoutonThermostat(ActionEvent event) throws IOException {
+        Thermostat thermostat = new Thermostat(capteurTemp);
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Thermostat.fxml"));
+        fxml.setController(thermostat);
+        Scene scene = new Scene(fxml.load());
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+        @FXML
+    private void clickBoutonCapteurs(ActionEvent event) throws IOException {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Capteurs.fxml"));
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();

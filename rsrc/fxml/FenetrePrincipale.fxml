@@ -11,6 +11,7 @@
    <center>
       <GridPane>
          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="120.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="120.0" />
@@ -21,7 +22,8 @@
          </rowConstraints>
          <Button fx:id="boutonMeteo" mnemonicParsing="false" onAction="#clickBoutonMeteo" text="Meteo" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
          <Button fx:id="boutonThermometre" mnemonicParsing="false" onAction="#clickBoutonThermometre" text="Thermometre" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-         <Button fx:id="boutonTreeView" mnemonicParsing="false" onAction="#clickBoutonTreeView" text="TreeView" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+         <Button fx:id="boutonTreeView" mnemonicParsing="false" onAction="#clickBoutonCapteurs" text="Capteurs" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+         <Button fx:id="boutonMeteo1" mnemonicParsing="false" onAction="#clickBoutonThermostat" text="Thermostat" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
       </GridPane>
    </center>
    <top>
