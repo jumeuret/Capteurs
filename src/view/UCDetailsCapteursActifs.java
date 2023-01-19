@@ -3,13 +3,10 @@ package view;
 import javafx.beans.property.Property;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import modele.capteur.Capteur;
+import modele.capteur.*;
 
 import java.io.IOException;
 
@@ -42,22 +39,42 @@ public class UCDetailsCapteursActifs extends HBox {
     }
 
     public void initialize(){
+
+    }
+
+    public void bindToNewValues(Capteur capteur){
+        if (nouveauTemps.getValueFactory() == null) {
+            SpinnerValueFactory.DoubleSpinnerValueFactory factory;
+            if (capteur instanceof CapteurRealiste) {
+                factory = new SpinnerValueFactory.DoubleSpinnerValueFactory(((CapteurRealiste) capteur).getMinTemperature(), ((CapteurRealiste) capteur).getMaxTemperature());
+            } else {
+                factory = new SpinnerValueFactory.DoubleSpinnerValueFactory(-93, 56);
+            }
+            factory.setAmountToStepBy(0.5);
+            factory.setValue(((CapteurTemperature) capteur).getTemperature());
+            nouveauTemps.setValueFactory(factory);
+        }
+        ((CapteurTemperature) capteur).temperatureProperty().addListener((__, ___, newValue) -> {
+            double intervale;
+            if (((CapteurTemperature) capteur).getTemperature() == nouveauTemps.getValue()) {
+                return;
+            } else if (((CapteurTemperature) capteur).getTemperature() < nouveauTemps.getValue()) {
+                intervale = nouveauTemps.getValue() - ((CapteurTemperature) capteur).getTemperature();
+                nouveauTemps.decrement((int) intervale);
+            } else {
+                intervale = ((CapteurTemperature) capteur).getTemperature() - nouveauTemps.getValue();
+                nouveauTemps.increment((int) intervale);
+            }
+        });
         generationAuto.selectedProperty().addListener((__, oldValue, newValue) -> {
             if (newValue){
+                capteur.bi
                 //Stopper génération auto
             }
             else{
                 //Lancer génération auto
             }
         });
-
-        //nouveauTemps.
-    }
-
-    public void bindToNewValues(Capteur capteur){
-        //temps.textProperty().bindBidirectional(nouveauTemps.editorProperty());
-        //temps.textProperty().bindBidirectional((Property<Double>) nouveauTemps.valueFactoryProperty().get().valueProperty());
-        //temps.textProperty().bindBidirectional();
     }
 
     public void unbindToOldValues(Capteur capteur){
