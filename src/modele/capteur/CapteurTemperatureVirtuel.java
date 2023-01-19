@@ -8,7 +8,7 @@ import java.util.*;
 
 public class CapteurTemperatureVirtuel extends CapteurTemperature {
 
-    private Map<Integer, CapteurTemperature> listeCapteurs = new HashMap<>();
+    private Map<Integer, List<CapteurTemperature>> listeCapteurs = new HashMap<>();
 
     /**
      * Constructeur de CapteurTemperatureVirtuel
@@ -20,12 +20,24 @@ public class CapteurTemperatureVirtuel extends CapteurTemperature {
         genererTemperature();
     }
 
-    public Map<Integer, CapteurTemperature> getListeCapteurs() {
+    public Map<Integer, List<CapteurTemperature>> getListeCapteurs() {
         return listeCapteurs;
     }
 
     public void ajouterCapteur(CapteurTemperature capteur, int poids){
-        listeCapteurs.putIfAbsent(poids, capteur);
+        if(listeCapteurs.containsKey(poids)){
+            ArrayList<CapteurTemperature> nouvelleListe = new ArrayList<>();
+            for (CapteurTemperature capteurTemp : listeCapteurs.getOrDefault(poids, null)){
+                nouvelleListe.add(capteurTemp);
+            }
+            nouvelleListe.add(capteur);
+            listeCapteurs.replace(poids, nouvelleListe);
+        }
+        else{
+            ArrayList<CapteurTemperature> nouvelleListe = new ArrayList<>();
+            nouvelleListe.add(capteur);
+            listeCapteurs.putIfAbsent(poids, nouvelleListe);
+        }
         //capteur.temperatureProperty().addListener();
     }
 
@@ -34,8 +46,8 @@ public class CapteurTemperatureVirtuel extends CapteurTemperature {
      */
     public void genererTemperature(){
         double moyenne = 0;
-        for (CapteurTemperature capteur: listeCapteurs.values()) {
-            for (int poids : listeCapteurs.keySet()){
+        for (int poids : listeCapteurs.keySet()){
+            for (CapteurTemperature capteur: listeCapteurs.getOrDefault(poids, null)) {
                 moyenne = moyenne + poids * capteur.getTemperature();
             }
         }

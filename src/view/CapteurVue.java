@@ -25,8 +25,10 @@ public class CapteurVue extends TreeItem<Capteur> {
 
         TreeItem<Capteur> racine = new TreeItem<>(capteur);
         if (capteur instanceof CapteurTemperatureVirtuel){
-            for (Capteur fils : ((CapteurTemperatureVirtuel)capteur).getListeCapteurs().values()) {
-                racine.getChildren().add(convert(fils));
+            for (int poids : ((CapteurTemperatureVirtuel) capteur).getListeCapteurs().keySet()){
+                for (Capteur fils: ((CapteurTemperatureVirtuel) capteur).getListeCapteurs().getOrDefault(poids, null)) {
+                    racine.getChildren().add(convert(fils));
+                }
             }
         }
         return racine;
