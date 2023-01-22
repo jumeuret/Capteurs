@@ -13,6 +13,7 @@ public class CelluleCapteur extends TreeCell<Capteur> {
 
     @Override
     protected void updateItem(Capteur capteur, boolean empty) {
+        //System.out.println("UPDATE");
         super.updateItem(capteur, empty);
         if (capteur == null || empty) {
             setGraphic(null);

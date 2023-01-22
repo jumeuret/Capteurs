@@ -66,11 +66,11 @@ public class AffichageCapteurs {
                 //Mettre UC de type & Bind UC par type
                 if (newValue.getValue() instanceof CapteurTemperatureVirtuel){
                     ucDetailsCapteurEmplacement.getChildren().add(ucDetailsCapteursVirtuels);
-                    //
+                    ucDetailsCapteursVirtuels.bindToNewValues((CapteurTemperatureVirtuel) newValue.getValue());
                 }
                 else if(newValue.getValue() instanceof CapteurTemperatureActif){
                     ucDetailsCapteurEmplacement.getChildren().add(ucDetailsCapteursActifs);
-                    //
+                    ucDetailsCapteursActifs.bindToNewValues((CapteurTemperatureActif) newValue.getValue());
                 }
             }
         });

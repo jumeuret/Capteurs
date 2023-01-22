@@ -1,21 +1,28 @@
 package view;
 
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.*;
+import javafx.beans.value.ObservableIntegerValue;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import modele.capteur.Capteur;
 import modele.capteur.CapteurTemperature;
+import modele.capteur.CapteurTemperaturePassif;
 import modele.capteur.CapteurTemperatureVirtuel;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UCDetailsCapteursVirtuels extends VBox {
 
@@ -26,7 +33,7 @@ public class UCDetailsCapteursVirtuels extends VBox {
     TableColumn<Capteur, Integer> poids;
 
     @FXML
-    TableColumn<Capteur, Image> type;
+    TableColumn<Capteur, ImageView> type;
 
     @FXML
     TableColumn<Capteur, Integer> id;
@@ -44,40 +51,50 @@ public class UCDetailsCapteursVirtuels extends VBox {
     }
 
     public void bindToNewValues(CapteurTemperatureVirtuel capteur){
-        /*
-        tableau.setRowFactory(param -> {
-            param
-        });
-        poids.setCellValueFactory(param -> new SimpleIntegerProperty(capteur.trouverPoidsCapteurObserve(param.getValue())));
-        type.setCellValueFactory(param -> {
-            param.getValue().set
-        });
-        */
-        //poids.tableViewProperty()
-        /*
-        poids.setCellValueFactory(
-                new PropertyValueFactory<Capteur,Double>("poids")
-        );
 
-        poids.setCellValueFactory(param -> {
-            double poidsFinal = (double) capteur.getListeCapteurs().keySet().toArray()[0];
-            for (int poids : capteur.getListeCapteurs().keySet()) {
-                for (CapteurTemperature leCapteur : capteur.getListeCapteurs().getOrDefault(poids, null)) {
-                    if (capteur.getId() == param.getValue().getId()) {
-                        poidsFinal = poids;
-                    }
-                }
-            }
-            DoubleProperty poids = new SimpleDoubleProperty();
-            poids.set(poidsFinal);
-            return poids;
-        });
         id.setCellValueFactory(
                 new PropertyValueFactory<Capteur,Integer>("id")
         );
+        ObservableList<Capteur> obsListe = FXCollections.observableArrayList(capteur.getListeCapteursSansPoids());
 
-        //tableau.setItems(capteur.getListeCapteurs().values());
-         */
+        poids.setCellValueFactory(param -> {
+            int poids = capteur.trouverPoidsCapteurObserve(param.getValue());
+            ObservableValue<Integer> poidsFinal = new SimpleIntegerProperty(poids).asObject();
+            return poidsFinal;
+        });
+
+        type.setCellValueFactory(param -> {
+            ImageView image = new ImageView();
+            if (param.getValue() instanceof CapteurTemperaturePassif){
+                try {
+                    image.setImage(new Image(getClass().getResource("/images/capteurPassif.png").openStream()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            else if (param.getValue() instanceof CapteurTemperatureVirtuel){
+                try {
+                    image.setImage(new Image(getClass().getResource("/images/capteurVirtuel.png").openStream()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            else{
+                try {
+                    image.setImage(new Image(getClass().getResource("/images/capteurActif.png").openStream()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            image.setFitHeight(37);
+            image.setFitWidth(15);
+            //CelluleIcone icone = new CelluleIcone(image);
+            ObservableValue<ImageView> iconeFinale = new SimpleObjectProperty<ImageView>(image);
+            return iconeFinale;
+        });
+        poids.setEditable(true);
+
+        tableau.setItems(obsListe);
     }
 
     public void unbindToOldValues(Capteur capteur){

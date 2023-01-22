@@ -24,6 +24,15 @@ public class CapteurTemperatureVirtuel extends CapteurTemperature {
         return listeCapteurs;
     }
 
+    public List<CapteurTemperature> getListeCapteursSansPoids() {
+
+        List<CapteurTemperature> nouvelleListe = new ArrayList<>();
+        for (int poids : listeCapteurs.keySet()) {
+            nouvelleListe.addAll(listeCapteurs.getOrDefault(poids, null));
+        }
+        return nouvelleListe;
+    }
+
     public void ajouterCapteur(CapteurTemperature capteur, int poids){
         if(listeCapteurs.containsKey(poids)){
             if (listeCapteurs.getOrDefault(poids, null) != null) {
