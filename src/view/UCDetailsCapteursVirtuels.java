@@ -1,25 +1,29 @@
 package view;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import modele.capteur.Capteur;
 import modele.capteur.CapteurTemperature;
 import modele.capteur.CapteurTemperatureVirtuel;
 
 import java.io.IOException;
 
-public class UCDetailsCapteursVirtuels extends HBox {
+public class UCDetailsCapteursVirtuels extends VBox {
 
     @FXML
     TableView<Capteur> tableau;
 
     @FXML
-    TableColumn<Capteur, Double> poids;
+    TableColumn<Capteur, Integer> poids;
 
     @FXML
     TableColumn<Capteur, Image> type;
@@ -34,7 +38,21 @@ public class UCDetailsCapteursVirtuels extends HBox {
         fxml.load();
     }
 
+    public void initialize(){
+
+        poids.setEditable(true);
+    }
+
     public void bindToNewValues(CapteurTemperatureVirtuel capteur){
+        /*
+        tableau.setRowFactory(param -> {
+            param
+        });
+        poids.setCellValueFactory(param -> new SimpleIntegerProperty(capteur.trouverPoidsCapteurObserve(param.getValue())));
+        type.setCellValueFactory(param -> {
+            param.getValue().set
+        });
+        */
         //poids.tableViewProperty()
         /*
         poids.setCellValueFactory(
@@ -50,13 +68,16 @@ public class UCDetailsCapteursVirtuels extends HBox {
                     }
                 }
             }
-            return poidsFinal;
+            DoubleProperty poids = new SimpleDoubleProperty();
+            poids.set(poidsFinal);
+            return poids;
         });
         id.setCellValueFactory(
                 new PropertyValueFactory<Capteur,Integer>("id")
         );
-        */
+
         //tableau.setItems(capteur.getListeCapteurs().values());
+         */
     }
 
     public void unbindToOldValues(Capteur capteur){

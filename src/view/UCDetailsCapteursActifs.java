@@ -1,16 +1,24 @@
 package view;
 
 import javafx.beans.property.Property;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import modele.capteur.*;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UCDetailsCapteursActifs extends HBox {
+public class UCDetailsCapteursActifs extends VBox {
 
     @FXML
     Label temps;
@@ -39,7 +47,16 @@ public class UCDetailsCapteursActifs extends HBox {
     }
 
     public void initialize(){
+        nouvelleStrategie.getItems().add("Aléatoire");
+        nouvelleStrategie.getItems().add("Réaliste");
+        nouvelleStrategie.getItems().add("Variative");
+        nouvelleStrategie.getItems().add("CPU");
+    }
 
+    public void clicCapteur(MouseEvent event){
+        if (event.getButton() == MouseButton.SECONDARY){
+            System.out.println("Hey !");
+        }
     }
 
     public void bindToNewValues(Capteur capteur){
@@ -66,15 +83,25 @@ public class UCDetailsCapteursActifs extends HBox {
                 nouveauTemps.increment((int) intervale);
             }
         });
+
         generationAuto.selectedProperty().addListener((__, oldValue, newValue) -> {
             if (newValue){
-                capteur.bi
                 //Stopper génération auto
+                generationAuto.setText("Reprendre");
             }
             else{
                 //Lancer génération auto
+                generationAuto.setText("Arrêt");
             }
         });
+
+        //temps.textProperty().bindBidirectional(((CapteurTemperature) capteur).temperatureProperty());
+
+        //strategie.textProperty().bindBidirectional(nouvelleStrategie.getSelectionModel().getSelectedItem().toString());
+
+
+
+
     }
 
     public void unbindToOldValues(Capteur capteur){

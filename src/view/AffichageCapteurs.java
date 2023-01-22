@@ -4,6 +4,7 @@ import data.Stub;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import modele.capteur.Capteur;
 import modele.capteur.CapteurTemperature;
 import modele.capteur.CapteurTemperatureActif;
@@ -19,10 +20,10 @@ public class AffichageCapteurs {
     TreeView<Capteur> arbreCapteurs;
 
     @FXML
-    HBox ucDetailsGenerauxEmplacement;
+    VBox ucDetailsGenerauxEmplacement;
 
     @FXML
-    HBox ucDetailsCapteurEmplacement;
+    VBox ucDetailsCapteurEmplacement;
 
     UCDetailsgeneraux ucDetailsGeneraux = new UCDetailsgeneraux();
 

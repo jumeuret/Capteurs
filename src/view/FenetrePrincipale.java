@@ -104,6 +104,7 @@ public class FenetrePrincipale {
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
         stage.setScene(scene);
+        stage.setMinWidth(1000);
         stage.show();
     }
 }

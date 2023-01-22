@@ -26,12 +26,12 @@ public class CapteurTemperatureVirtuel extends CapteurTemperature {
 
     public void ajouterCapteur(CapteurTemperature capteur, int poids){
         if(listeCapteurs.containsKey(poids)){
-            ArrayList<CapteurTemperature> nouvelleListe = new ArrayList<>();
-            for (CapteurTemperature capteurTemp : listeCapteurs.getOrDefault(poids, null)){
-                nouvelleListe.add(capteurTemp);
+            if (listeCapteurs.getOrDefault(poids, null) != null) {
+                ArrayList<CapteurTemperature> nouvelleListe = new ArrayList<>();
+                nouvelleListe.addAll(listeCapteurs.getOrDefault(poids, null));
+                nouvelleListe.add(capteur);
+                listeCapteurs.replace(poids, nouvelleListe);
             }
-            nouvelleListe.add(capteur);
-            listeCapteurs.replace(poids, nouvelleListe);
         }
         else{
             ArrayList<CapteurTemperature> nouvelleListe = new ArrayList<>();
@@ -39,6 +39,23 @@ public class CapteurTemperatureVirtuel extends CapteurTemperature {
             listeCapteurs.putIfAbsent(poids, nouvelleListe);
         }
         //capteur.temperatureProperty().addListener();
+    }
+
+    public void supprimerCapteur(CapteurTemperature capteur){
+        int poids = trouverPoidsCapteurObserve(capteur);
+        listeCapteurs.getOrDefault(poids, null).remove(capteur);
+    }
+
+    public int trouverPoidsCapteurObserve(Capteur capteur){
+
+        for (int poids : listeCapteurs.keySet()) {
+            for (CapteurTemperature leCapteur : listeCapteurs.getOrDefault(poids, null)) {
+                if (leCapteur.getId() == capteur.getId()) {
+                    return poids;
+                }
+            }
+        }
+        return -1;
     }
 
     /**
