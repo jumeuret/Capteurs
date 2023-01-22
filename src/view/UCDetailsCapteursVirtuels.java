@@ -1,16 +1,13 @@
 package view;
 
 import javafx.beans.property.*;
-import javafx.beans.value.ObservableIntegerValue;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,9 +17,8 @@ import modele.capteur.CapteurTemperature;
 import modele.capteur.CapteurTemperaturePassif;
 import modele.capteur.CapteurTemperatureVirtuel;
 
+import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UCDetailsCapteursVirtuels extends VBox {
 
@@ -38,6 +34,15 @@ public class UCDetailsCapteursVirtuels extends VBox {
     @FXML
     TableColumn<Capteur, Integer> id;
 
+    @FXML
+    Button ajout;
+
+    @FXML
+    ComboBox<Capteur> capteurs;
+
+    @FXML
+    TextField nouveauPoids;
+
     public UCDetailsCapteursVirtuels() throws IOException {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/UCDetailsCapteurVirtuels.fxml"));
         fxml.setController(this);
@@ -46,11 +51,30 @@ public class UCDetailsCapteursVirtuels extends VBox {
     }
 
     public void initialize(){
-
-        poids.setEditable(true);
+        ajout.setOnAction( event -> {
+            if (capteurs.getSelectionModel().getSelectedItem() != null){
+                if (nouveauPoids.getText() != null){
+                    //ajout.getScene().getWindow().
+                    int poids = Integer.parseInt(nouveauPoids.getText());
+                    //arbreCapteurs.getRoot().ajouterCapteur(capteurs.getSelectionModel().getSelectedItem(), poids);
+                }
+            }
+        });
     }
 
     public void bindToNewValues(CapteurTemperatureVirtuel capteur){
+
+        //Ne fonctionne pas
+        tableau.setRowFactory( param -> {
+            TableRow<Capteur> ligne = new TableRow<>();
+            ContextMenu menu = new ContextMenu();
+            MenuItem suppression = new MenuItem("Supprimer");
+            suppression.setOnAction( event -> {
+                tableau.getItems().remove(ligne.getItem());
+                capteur.supprimerCapteur((CapteurTemperature) ligne.getItem());
+            });
+            return ligne;
+        });
 
         id.setCellValueFactory(
                 new PropertyValueFactory<Capteur,Integer>("id")
@@ -61,6 +85,20 @@ public class UCDetailsCapteursVirtuels extends VBox {
             int poids = capteur.trouverPoidsCapteurObserve(param.getValue());
             ObservableValue<Integer> poidsFinal = new SimpleIntegerProperty(poids).asObject();
             return poidsFinal;
+        });
+
+        //poids.setCellFactory(TextFieldTableCell.<Capteur>forTableColumn());
+
+        poids.setEditable(true);
+
+        poids.setOnEditCommit((TableColumn.CellEditEvent<Capteur, Integer> event) -> {
+            TablePosition<Capteur, Integer> pos = event.getTablePosition();
+
+            Integer nouveauPoids = event.getNewValue();
+
+            int row = pos.getRow();
+            Capteur capteurCourant = event.getTableView().getItems().get(row);
+            capteur.setPoids(capteurCourant, nouveauPoids);
         });
 
         type.setCellValueFactory(param -> {
@@ -88,16 +126,14 @@ public class UCDetailsCapteursVirtuels extends VBox {
             }
             image.setFitHeight(37);
             image.setFitWidth(15);
-            //CelluleIcone icone = new CelluleIcone(image);
             ObservableValue<ImageView> iconeFinale = new SimpleObjectProperty<ImageView>(image);
             return iconeFinale;
         });
-        poids.setEditable(true);
 
         tableau.setItems(obsListe);
     }
 
     public void unbindToOldValues(Capteur capteur){
-        //nom.textProperty().unbindBidirectional(capteur.nomProperty());
+
     }
 }

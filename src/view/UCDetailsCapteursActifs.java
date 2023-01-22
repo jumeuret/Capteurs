@@ -55,17 +55,18 @@ public class UCDetailsCapteursActifs extends VBox {
 
     public void clicCapteur(MouseEvent event){
         if (event.getButton() == MouseButton.SECONDARY){
-            System.out.println("Hey !");
+            //System.out.println("Hey !");
         }
     }
 
     public void bindToNewValues(Capteur capteur){
-        System.out.println("J'y suis !");
+        //System.out.println("J'y suis !");
         if (nouveauTemps.getValueFactory() == null) {
             SpinnerValueFactory.DoubleSpinnerValueFactory factory;
             if (capteur instanceof CapteurRealiste) {
                 factory = new SpinnerValueFactory.DoubleSpinnerValueFactory(((CapteurRealiste) capteur).getMinTemperature(), ((CapteurRealiste) capteur).getMaxTemperature());
-            } else {
+            }
+            else {
                 factory = new SpinnerValueFactory.DoubleSpinnerValueFactory(-93, 56);
             }
             factory.setAmountToStepBy(0.5);
@@ -73,18 +74,18 @@ public class UCDetailsCapteursActifs extends VBox {
             nouveauTemps.setValueFactory(factory);
         }
         ((CapteurTemperature) capteur).temperatureProperty().addListener((__, ___, newValue) -> {
-            System.out.println("Je m'enfonce !");
+            //System.out.println("Je m'enfonce !");
             double intervale;
             if (((CapteurTemperature) capteur).getTemperature() == nouveauTemps.getValue()) {
-                System.out.println("Pas bouger  -> " + ((CapteurTemperature) capteur).getTemperature());
+                //System.out.println("Pas bouger  -> " + ((CapteurTemperature) capteur).getTemperature());
             } else if (((CapteurTemperature) capteur).getTemperature() < nouveauTemps.getValue()) {
-                System.out.println("Assis ! : " + nouveauTemps.getValue() + " -> " + ((CapteurTemperature) capteur).getTemperature());
+                //System.out.println("Assis ! : " + nouveauTemps.getValue() + " -> " + ((CapteurTemperature) capteur).getTemperature());
 
                 intervale = nouveauTemps.getValue() - ((CapteurTemperature) capteur).getTemperature();
                 nouveauTemps.getValueFactory().setValue(((CapteurTemperature) capteur).getTemperature());
                 nouveauTemps.decrement((int) intervale);
             } else {
-                System.out.println("Debout ! : " + nouveauTemps.getValue() + " -> " + ((CapteurTemperature) capteur).getTemperature());
+                //System.out.println("Debout ! : " + nouveauTemps.getValue() + " -> " + ((CapteurTemperature) capteur).getTemperature());
                 intervale = ((CapteurTemperature) capteur).getTemperature() - nouveauTemps.getValue();
                 nouveauTemps.getValueFactory().setValue(((CapteurTemperature) capteur).getTemperature());
                 nouveauTemps.increment((int) intervale);

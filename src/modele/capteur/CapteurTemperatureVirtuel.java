@@ -55,6 +55,11 @@ public class CapteurTemperatureVirtuel extends CapteurTemperature {
         listeCapteurs.getOrDefault(poids, null).remove(capteur);
     }
 
+    public void setPoids(Capteur capteur, int poids){
+        supprimerCapteur((CapteurTemperature) capteur);
+        ajouterCapteur((CapteurTemperature) capteur, poids);
+    }
+
     public int trouverPoidsCapteurObserve(Capteur capteur){
 
         for (int poids : listeCapteurs.keySet()) {
