@@ -1,6 +1,7 @@
-package modele.capteur;
+package modele.capteur.capteurActif;
 
 import modele.Bipper;
+import modele.capteur.CapteurTemperature;
 
 import java.io.IOException;
 

@@ -2,21 +2,9 @@ package view;
 
 import javafx.scene.control.TreeItem;
 import modele.capteur.Capteur;
-import modele.capteur.CapteurTemperatureVirtuel;
+import modele.capteur.capteurActif.CapteurTemperatureVirtuel;
 
 public class CapteurVue extends TreeItem<Capteur> {
-
-    /*public TreeItem<Capteur> convert(TreeItem<Capteur> racine){
-
-        for (Capteur capteur : ((CapteurTemperatureVirtuel) racine.getValue()).getListeCapteurs().values()) {
-            TreeItem<Capteur> feuille = new TreeItem<>(capteur);
-            racine.getChildren().add(feuille);
-            if (capteur instanceof CapteurTemperatureVirtuel){
-                feuille.getChildren().add(convert(feuille));
-            }
-        }
-        return racine;
-    }*/
 
     public TreeItem<Capteur> convert(Capteur capteur){
 

@@ -1,4 +1,4 @@
-package view;
+package view.usersControls;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +25,7 @@ public class UCDetailsgeneraux extends HBox {
     VBox ucDetailsCapteurEmplacement;
 
     public UCDetailsgeneraux() throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/UCDetailsGeneraux.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Users Controls/UCDetailsGeneraux.fxml"));
         fxml.setController(this);
         fxml.setRoot(this);
         fxml.load();

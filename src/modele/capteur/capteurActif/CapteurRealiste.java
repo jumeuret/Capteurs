@@ -1,4 +1,4 @@
-package modele.capteur;
+package modele.capteur.capteurActif;
 
 import modele.Bipper;
 import modele.generateur.GenerateurTemperatureRealiste;

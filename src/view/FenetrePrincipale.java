@@ -7,9 +7,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import modele.Bipper;
-import modele.capteur.CapteurCPU;
+import modele.capteur.capteurActif.CapteurCPU;
 import modele.capteur.CapteurTemperature;
-import modele.capteur.CapteurVariatif;
+import view.visualisateurs.Meteo;
+import view.visualisateurs.Thermometre;
+import view.visualisateurs.Thermostat;
 
 import java.io.IOException;
 
@@ -70,7 +72,7 @@ public class FenetrePrincipale {
     @FXML
     private void clickBoutonMeteo(ActionEvent event) throws IOException {
         Meteo meteo = new Meteo(capteurTemp);
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Meteo.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Visualisateurs/Meteo.fxml"));
         fxml.setController(meteo);
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
@@ -86,7 +88,7 @@ public class FenetrePrincipale {
     @FXML
     private void clickBoutonThermometre(ActionEvent event) throws IOException {
         Thermometre thermometre = new Thermometre(capteurTemp);
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Thermometre.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Visualisateurs/Thermometre.fxml"));
         fxml.setController(thermometre);
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
@@ -97,7 +99,7 @@ public class FenetrePrincipale {
     @FXML
     private void clickBoutonThermostat(ActionEvent event) throws IOException {
         Thermostat thermostat = new Thermostat(capteurTemp);
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Thermostat.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Visualisateurs/Thermostat.fxml"));
         fxml.setController(thermostat);
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
@@ -107,7 +109,7 @@ public class FenetrePrincipale {
 
         @FXML
     private void clickBoutonCapteurs(ActionEvent event) throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Capteurs.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/AffichageCapteurs.fxml"));
         Scene scene = new Scene(fxml.load());
         Stage stage = new Stage();
         stage.setScene(scene);

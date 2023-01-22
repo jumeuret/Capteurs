@@ -5,8 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import modele.capteur.Capteur;
-import modele.capteur.CapteurTemperatureActif;
-import modele.capteur.CapteurTemperatureVirtuel;
+import modele.capteur.capteurActif.CapteurTemperatureActif;
+import modele.capteur.capteurActif.CapteurTemperatureVirtuel;
+import view.usersControls.UCDetailsCapteursActifs;
+import view.usersControls.UCDetailsCapteursVirtuels;
+import view.usersControls.UCDetailsgeneraux;
 
 import java.io.IOException;
 import java.util.ArrayList;

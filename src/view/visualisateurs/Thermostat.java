@@ -1,16 +1,13 @@
-package view;
+package view.visualisateurs;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Slider;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
-import modele.capteur.CapteurRealiste;
+import modele.capteur.capteurActif.CapteurRealiste;
 import modele.capteur.CapteurTemperature;
-
-import java.io.IOException;
 
 /**
  * Classe dérivée de Visualisateur Code Behind de Thermostat.fxml

@@ -4,8 +4,8 @@ import javafx.scene.control.TreeCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import modele.capteur.Capteur;
-import modele.capteur.CapteurTemperaturePassif;
-import modele.capteur.CapteurTemperatureVirtuel;
+import modele.capteur.capteurActif.CapteurTemperaturePassif;
+import modele.capteur.capteurActif.CapteurTemperatureVirtuel;
 
 import java.io.IOException;
 
@@ -23,21 +23,21 @@ public class CelluleCapteur extends TreeCell<Capteur> {
             ImageView image = new ImageView();
             if (capteur instanceof CapteurTemperaturePassif){
                 try {
-                    image.setImage(new Image(getClass().getResource("/images/capteurPassif.png").openStream()));
+                    image.setImage(new Image(getClass().getResource("/images/Capteurs/capteurPassif.png").openStream()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else if (capteur instanceof CapteurTemperatureVirtuel){
                 try {
-                    image.setImage(new Image(getClass().getResource("/images/capteurVirtuel.png").openStream()));
+                    image.setImage(new Image(getClass().getResource("/images/Capteurs/capteurVirtuel.png").openStream()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
                 try {
-                    image.setImage(new Image(getClass().getResource("/images/capteurActif.png").openStream()));
+                    image.setImage(new Image(getClass().getResource("/images/Capteurs/capteurActif.png").openStream()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

@@ -1,10 +1,10 @@
 package data;
 
 import modele.Bipper;
-import modele.capteur.CapteurRealiste;
-import modele.capteur.CapteurTemperaturePassif;
-import modele.capteur.CapteurTemperatureVirtuel;
-import modele.capteur.CapteurVariatif;
+import modele.capteur.capteurActif.CapteurRealiste;
+import modele.capteur.capteurActif.CapteurTemperaturePassif;
+import modele.capteur.capteurActif.CapteurTemperatureVirtuel;
+import modele.capteur.capteurActif.CapteurVariatif;
 
 public class Stub {
 

@@ -1,4 +1,4 @@
-package view;
+package view.visualisateurs;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

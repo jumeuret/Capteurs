@@ -1,8 +1,8 @@
 package console;
 
 import modele.capteur.CapteurTemperature;
-import view.Meteo;
-import view.Thermometre;
+import view.visualisateurs.Meteo;
+import view.visualisateurs.Thermometre;
 
 /**
  * Classe d'affichage

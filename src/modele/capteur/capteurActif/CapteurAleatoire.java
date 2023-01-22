@@ -1,9 +1,7 @@
-package modele.capteur;
+package modele.capteur.capteurActif;
 
 import modele.Bipper;
 import modele.generateur.GenerateurTemperatureAleatoire;
-import modele.generateur.GenerateurTemperatureRealiste;
-import modele.generateur.GenerateurTemperatureVariatif;
 
 public class CapteurAleatoire extends CapteurTemperatureActif{
 

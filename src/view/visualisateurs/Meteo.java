@@ -1,4 +1,4 @@
-package view;
+package view.visualisateurs;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -36,13 +36,13 @@ public class Meteo extends Visualisateur {
     private void changeImage() throws IOException {
         Image newImage;
         if (((CapteurTemperature)getCapteur()).getTemperature() < 0){
-            newImage = new Image(getClass().getResource("/images/neige.png").openStream());
+            newImage = new Image(getClass().getResource("/images/Meteo/neige.png").openStream());
         }
         else if (((CapteurTemperature)getCapteur()).getTemperature() < 22) {
-            newImage = new Image(getClass().getResource("/images/nuages.png").openStream());
+            newImage = new Image(getClass().getResource("/images/Meteo/nuages.png").openStream());
         }
         else{
-            newImage = new Image(getClass().getResource("/images/soleil.png").openStream());
+            newImage = new Image(getClass().getResource("/images/Meteo/soleil.png").openStream());
         }
         imageView.setImage(newImage);
     }

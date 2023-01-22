@@ -1,4 +1,4 @@
-package view;
+package view.usersControls;
 
 import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
@@ -13,8 +13,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import modele.capteur.Capteur;
 import modele.capteur.CapteurTemperature;
-import modele.capteur.CapteurTemperaturePassif;
-import modele.capteur.CapteurTemperatureVirtuel;
+import modele.capteur.capteurActif.CapteurTemperaturePassif;
+import modele.capteur.capteurActif.CapteurTemperatureVirtuel;
 
 import java.io.IOException;
 
@@ -42,7 +42,7 @@ public class UCDetailsCapteursVirtuels extends VBox {
     TextField nouveauPoids;
 
     public UCDetailsCapteursVirtuels() throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/UCDetailsCapteurVirtuels.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Users Controls/UCDetailsCapteurVirtuels.fxml"));
         fxml.setController(this);
         fxml.setRoot(this);
         fxml.load();
@@ -103,21 +103,21 @@ public class UCDetailsCapteursVirtuels extends VBox {
             ImageView image = new ImageView();
             if (param.getValue() instanceof CapteurTemperaturePassif){
                 try {
-                    image.setImage(new Image(getClass().getResource("/images/capteurPassif.png").openStream()));
+                    image.setImage(new Image(getClass().getResource("/images/Capteurs/capteurPassif.png").openStream()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else if (param.getValue() instanceof CapteurTemperatureVirtuel){
                 try {
-                    image.setImage(new Image(getClass().getResource("/images/capteurVirtuel.png").openStream()));
+                    image.setImage(new Image(getClass().getResource("/images/Capteurs/capteurVirtuel.png").openStream()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
             else{
                 try {
-                    image.setImage(new Image(getClass().getResource("/images/capteurActif.png").openStream()));
+                    image.setImage(new Image(getClass().getResource("/images/Capteurs/capteurActif.png").openStream()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }

@@ -1,9 +1,5 @@
-package view;
+package view.usersControls;
 
-import javafx.beans.property.Property;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -12,11 +8,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import modele.capteur.*;
+import modele.capteur.capteurActif.CapteurRealiste;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UCDetailsCapteursActifs extends VBox {
 
@@ -39,7 +33,7 @@ public class UCDetailsCapteursActifs extends VBox {
     BorderPane contenu;
 
     public UCDetailsCapteursActifs() throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/UCDetailsCapteurActifs.fxml"));
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("/fxml/Users Controls/UCDetailsCapteurActifs.fxml"));
         fxml.setController(this);
         fxml.setRoot(this);
         fxml.load();
@@ -101,5 +95,6 @@ public class UCDetailsCapteursActifs extends VBox {
     }
 
     public void unbindToOldValues(Capteur capteur){
+
     }
 }

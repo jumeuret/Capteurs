@@ -1,6 +1,8 @@
-package modele.capteur;
+package modele.capteur.capteurActif;
 
 import modele.Bipper;
+import modele.capteur.Capteur;
+import modele.capteur.CapteurTemperature;
 
 import java.util.*;
 

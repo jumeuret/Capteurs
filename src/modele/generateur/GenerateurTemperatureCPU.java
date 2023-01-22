@@ -1,14 +1,12 @@
 package modele.generateur;
 
 import modele.Bipper;
-import modele.capteur.CapteurTemperatureActif;
+import modele.capteur.capteurActif.CapteurTemperatureActif;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 public class GenerateurTemperatureCPU extends GenerateurTemperature {

@@ -2,8 +2,8 @@ package exec;
 
 import console.Afficheur;
 import modele.capteur.CapteurTemperature;
-import view.Meteo;
-import view.Thermometre;
+import view.visualisateurs.Meteo;
+import view.visualisateurs.Thermometre;
 
 import java.io.IOException;
 
