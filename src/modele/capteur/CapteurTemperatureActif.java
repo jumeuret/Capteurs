@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public abstract class CapteurTemperatureActif extends CapteurTemperature {
 
-    protected Bipper bipper;
+    public Bipper bipper;
 
     /**
      * Constructeur de CapteurTemperaturePassif

@@ -10,17 +10,14 @@ import java.util.*;
 
 public class CapteurTemperatureVirtuel extends CapteurTemperature {
 
-    private Bipper bipper;
-
     private Map<Integer, List<CapteurTemperature>> listeCapteurs = new HashMap<>();
 
     /**
      * Constructeur de CapteurTemperatureVirtuel
      * @param nomCapteur
      */
-    public CapteurTemperatureVirtuel(String nomCapteur, Bipper bipper) {
+    public CapteurTemperatureVirtuel(String nomCapteur) {
         super(nomCapteur);
-        this.bipper = bipper;
         genererTemperature();
     }
 

@@ -39,7 +39,7 @@ public class CreationCapteurTemperature {
     }
 
     public void clicVirtuel(ActionEvent event) {
-        capteur = new CapteurTemperatureVirtuel("temporaire", bipper);
+        capteur = new CapteurTemperatureVirtuel("temporaire");
         CreationCapteurTemperatureVirtuel construction = new CreationCapteurTemperatureVirtuel((CapteurTemperatureVirtuel) capteur);
         details.setCenter(construction.grid);
     }

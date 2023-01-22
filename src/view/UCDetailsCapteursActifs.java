@@ -73,35 +73,23 @@ public class UCDetailsCapteursActifs extends VBox {
             factory.setValue(((CapteurTemperature) capteur).getTemperature());
             nouveauTemps.setValueFactory(factory);
         }
-        ((CapteurTemperature) capteur).temperatureProperty().addListener((__, ___, newValue) -> {
-            //System.out.println("Je m'enfonce !");
-            double intervale;
-            if (((CapteurTemperature) capteur).getTemperature() == nouveauTemps.getValue()) {
-                //System.out.println("Pas bouger  -> " + ((CapteurTemperature) capteur).getTemperature());
-            } else if (((CapteurTemperature) capteur).getTemperature() < nouveauTemps.getValue()) {
-                //System.out.println("Assis ! : " + nouveauTemps.getValue() + " -> " + ((CapteurTemperature) capteur).getTemperature());
-
-                intervale = nouveauTemps.getValue() - ((CapteurTemperature) capteur).getTemperature();
+        /*
+        ((CapteurTemperatureActif) capteur).bipper.intervaleProperty().addListener((__, ___, newValue) -> {
+            if (((CapteurTemperature) capteur).getTemperature() != nouveauTemps.getValue()) {
                 nouveauTemps.getValueFactory().setValue(((CapteurTemperature) capteur).getTemperature());
-                nouveauTemps.decrement((int) intervale);
-            } else {
-                //System.out.println("Debout ! : " + nouveauTemps.getValue() + " -> " + ((CapteurTemperature) capteur).getTemperature());
-                intervale = ((CapteurTemperature) capteur).getTemperature() - nouveauTemps.getValue();
-                nouveauTemps.getValueFactory().setValue(((CapteurTemperature) capteur).getTemperature());
-                nouveauTemps.increment((int) intervale);
             }
         });
-
         generationAuto.selectedProperty().addListener((__, oldValue, newValue) -> {
             if (newValue){
-                //Stopper génération auto
+                ((CapteurTemperatureActif)capteur).bipper.stopped();
                 generationAuto.setText("Reprendre");
             }
             else{
-                //Lancer génération auto
+                ((CapteurTemperatureActif)capteur).bipper.run();
                 generationAuto.setText("Arrêt");
             }
         });
+        */
 
         //temps.textProperty().bindBidirectional(((CapteurTemperature) capteur).temperatureProperty());
 
