@@ -76,7 +76,7 @@ public class Meteo extends Visualisateur {
 
 
     public void initialize() {
-        ((CapteurTemperature)getCapteur()).temperatureProperty().addListener((__,___,newValue) -> {
+        ((CapteurTemperature)getCapteur()).temperatureProperty().addListener((o, oldValue, newValue) -> {
             try {
                 changeImage();
             } catch (IOException e) {

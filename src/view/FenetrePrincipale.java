@@ -16,10 +16,12 @@ import java.io.IOException;
  */
 public class FenetrePrincipale {
 
+    private Bipper bipper = new Bipper(500);
+
     /**
      * Attribut CapteurTemperature des fenêtres
      */
-    private final CapteurTemperature capteurTemp = new CapteurVariatif("CapteurTemp",-10,10);
+    private final CapteurTemperature capteurTemp = new CapteurCPU("CapteurTemp", bipper);
 
     /**
      * Attribut Button lancant la méthode clickBoutonMeteo
@@ -41,6 +43,9 @@ public class FenetrePrincipale {
      */
     @FXML
     Button fermer;
+
+    public FenetrePrincipale() throws IOException {
+    }
 
     /**
      * Méthode permettant de fermer toutes les fenêtres
