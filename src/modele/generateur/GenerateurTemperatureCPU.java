@@ -1,4 +1,7 @@
-package modele;
+package modele.generateur;
+
+import modele.Bipper;
+import modele.capteur.CapteurTemperatureActif;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,7 +17,7 @@ public class GenerateurTemperatureCPU extends GenerateurTemperature {
         super(capteur, bipper);
     }
 
-    public void change() throws IOException {
+    public void change() {
         double temperature = 0;
         try {
 
@@ -24,7 +27,6 @@ public class GenerateurTemperatureCPU extends GenerateurTemperature {
                 for (File fils : fichier.listFiles()) {
                     if (fils.getName().contains("thermal_zone")) {
                         thermal_zones.add(fils);
-                        System.out.println("th : " + fils);
                     }
                 }
             }
@@ -49,6 +51,5 @@ public class GenerateurTemperatureCPU extends GenerateurTemperature {
             throw new RuntimeException(e);
         }
         capteurTemp.setTemperature(temperature);
-        System.out.println(temperature);
     }
 }

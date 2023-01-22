@@ -6,6 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import modele.Bipper;
+import modele.capteur.CapteurCPU;
 import modele.capteur.CapteurTemperature;
 import modele.capteur.CapteurVariatif;
 

@@ -4,7 +4,6 @@ import javafx.beans.property.*;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -17,7 +16,6 @@ import modele.capteur.CapteurTemperature;
 import modele.capteur.CapteurTemperaturePassif;
 import modele.capteur.CapteurTemperatureVirtuel;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class UCDetailsCapteursVirtuels extends VBox {

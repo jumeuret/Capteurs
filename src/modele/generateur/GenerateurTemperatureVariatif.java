@@ -1,6 +1,7 @@
 package modele.generateur;
 
 import javafx.application.Platform;
+import modele.Bipper;
 import modele.capteur.CapteurTemperatureActif;
 import modele.capteur.CapteurVariatif;
 

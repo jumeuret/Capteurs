@@ -2,8 +2,7 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
-import modele.CapteurTemperatureActif;
-import modele.CapteurTemperatureVirtuel;
+import modele.capteur.CapteurTemperatureVirtuel;
 
 public class CreationCapteurTemperatureVirtuel {
 

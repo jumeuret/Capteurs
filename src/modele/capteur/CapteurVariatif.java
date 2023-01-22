@@ -1,5 +1,6 @@
 package modele.capteur;
 
+import modele.Bipper;
 import modele.generateur.GenerateurTemperatureVariatif;
 
 public class CapteurVariatif extends CapteurTemperatureActif{

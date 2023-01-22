@@ -2,7 +2,7 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
-import modele.CapteurTemperaturePassif;
+import modele.capteur.CapteurTemperaturePassif;
 
 public class CreationCapteurTemperaturePassif {
 

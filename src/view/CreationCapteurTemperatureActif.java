@@ -2,10 +2,7 @@ package view;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.GridPane;
-import modele.CapteurRealiste;
-import modele.CapteurTemperatureActif;
-import modele.CapteurTemperaturePassif;
-import modele.CapteurVariatif;
+import modele.capteur.*;
 
 import java.awt.*;
 

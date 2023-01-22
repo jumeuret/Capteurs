@@ -1,4 +1,7 @@
-package modele;
+package modele.capteur;
+
+import modele.Bipper;
+import modele.generateur.GenerateurTemperatureCPU;
 
 import java.io.IOException;
 
@@ -20,7 +23,7 @@ public class CapteurCPU extends CapteurTemperatureActif{
     }
 
     @Override
-    public void genererTemperature() throws IOException {
+    public void genererTemperature() {
         new GenerateurTemperatureCPU(this, bipper).change();
         bipper.start();
     }

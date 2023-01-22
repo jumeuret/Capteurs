@@ -1,6 +1,8 @@
 package modele.capteur;
 
+import modele.Bipper;
 import modele.generateur.GenerateurTemperatureAleatoire;
+import modele.generateur.GenerateurTemperatureRealiste;
 import modele.generateur.GenerateurTemperatureVariatif;
 
 public class CapteurAleatoire extends CapteurTemperatureActif{
@@ -10,8 +12,8 @@ public class CapteurAleatoire extends CapteurTemperatureActif{
      *
      * @param nomCapteur
      */
-    public CapteurAleatoire(String nomCapteur) {
-        super(nomCapteur);
+    public CapteurAleatoire(String nomCapteur, Bipper bipper) {
+        super(nomCapteur, bipper);
     }
 
     @Override
@@ -21,6 +23,7 @@ public class CapteurAleatoire extends CapteurTemperatureActif{
 
     @Override
     public void genererTemperature() {
-        new GenerateurTemperatureAleatoire(this).start();
+        new GenerateurTemperatureAleatoire(this, bipper);
+        bipper.run();
     }
 }

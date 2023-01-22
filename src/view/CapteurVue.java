@@ -2,10 +2,7 @@ package view;
 
 import javafx.scene.control.TreeItem;
 import modele.capteur.Capteur;
-import modele.capteur.CapteurTemperature;
 import modele.capteur.CapteurTemperatureVirtuel;
-
-import java.util.List;
 
 public class CapteurVue extends TreeItem<Capteur> {
 

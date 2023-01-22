@@ -1,6 +1,9 @@
 package modele.generateur;
 
+import modele.Bipper;
 import modele.capteur.CapteurTemperatureActif;
+
+import java.io.IOException;
 
 public abstract class GenerateurTemperature {
 

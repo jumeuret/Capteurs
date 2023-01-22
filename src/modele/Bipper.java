@@ -1,6 +1,7 @@
 package modele;
 
 import javafx.application.Platform;
+import modele.generateur.GenerateurTemperature;
 
 import java.io.IOException;
 import java.util.ArrayList;
