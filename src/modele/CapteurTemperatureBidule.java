@@ -24,5 +24,5 @@ public abstract class CapteurTemperatureBidule extends CapteurTemperature{
     /**
      * Méthode abstraite permettant de générer des températures
      */
-    public abstract void genererTemperature();
+    public abstract void genererTemperature() throws IOException;
 }

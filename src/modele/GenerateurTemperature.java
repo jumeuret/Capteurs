@@ -2,6 +2,7 @@ package modele;
 
 import javafx.application.Platform;
 
+import java.io.IOException;
 import java.util.Random;
 
 public abstract class GenerateurTemperature {
@@ -13,5 +14,5 @@ public abstract class GenerateurTemperature {
         bipper.observer(this);
     }
 
-    public abstract void change();
+    public abstract void change() throws IOException;
 }

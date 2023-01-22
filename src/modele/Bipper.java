@@ -2,6 +2,7 @@ package modele;
 
 import javafx.application.Platform;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -23,7 +24,7 @@ public class Bipper extends Thread {
         generateurs.add(generateur);
     }
 
-    public void bip(){
+    public void bip() throws IOException {
         for (GenerateurTemperature generateur : generateurs) {
             generateur.change();
         }
@@ -41,7 +42,11 @@ public class Bipper extends Thread {
                 throw new RuntimeException(e);
             }
             Platform.runLater(() -> {
-                bip();
+                try {
+                    bip();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             });
         }
     }
